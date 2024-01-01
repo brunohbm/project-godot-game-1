@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=3 uid="uid://sws4nl68vdv"]
+
+[sub_resource type="Curve3D" id="Curve3D_ebp02"]
+bake_interval = 0.01
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0.02, -0.148, 0, 0, 0, 0, 0, 0, -0.408, 0.137, -0.136, 0.093, -0.057, -0.079, -0.093, 0.057, 0.029, -0.6, 0.185, -0.16, 0.0780811, -0.0476808, -0.0279308, -0.0780811, 0.0476808, 0.0279308, -0.657, 0.25, -0.122, 0.0290029, -0.0654308, -0.0117933, -0.0290029, 0.0654308, 0.0117933, -0.954, 0.25, -0.101, 0.0261579, -0.0900051, 0.144835, -0.0261579, 0.0900051, -0.144835, -1.215, 0.25, -0.068, 0, 0, 0, -0.00244045, 0.00973403, 0.00310783, -1.5, 0.25, -0.034, 0.00574398, -0.0420623, -0.000626414, -0.00574398, 0.0420623, 0.000626414, -3.103, 0.25, 0, 0, 0, 0, 0, 0, 0, -3.242, 0.35, 0, 0, 0, 0, 0, 0.05, 0, -3.436, 0.483, 0, 0, 0.06, 0, 0, 0.12, 0, -3.644, 0.55, 0, 0, 0.01, 0, 0, 0, 0, -3.881, 0.255, 0, 0, 0, 0, 0, 0, 0, -3.926, -5.979, -0.001),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 13
+
+[sub_resource type="BoxMesh" id="BoxMesh_yragc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g0wx8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_h8s2w"]
+
+[node name="FirstScene" type="Node3D"]
+
+[node name="CameraPath" type="Path3D" parent="."]
+transform = Transform3D(0.999418, -1.49043e-09, -0.0340971, 1.49043e-09, 1, -2.54169e-11, 0.0340971, -2.54174e-11, 0.999418, 0.000610448, -0.00115931, -0.00389768)
+curve = SubResource("Curve3D_ebp02")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="CameraPath"]
+transform = Transform3D(-0.0201681, 0, 0.999658, 0, 0.999984, 0, -0.999653, 0, -0.0201682, -2.24495, 0.238797, -0.0171831)
+progress = 2.49734
+rotation_mode = 1
+loop = false
+
+[node name="MainCamera" type="Camera3D" parent="CameraPath/PathFollow3D"]
+transform = Transform3D(1.00008, 0, 0, 0, 1.00002, 0, 0, 0, 1.00008, -0.00181574, 0.000924586, 0.0043893)
+
+[node name="Scenario" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.95932, -0.0215268, 0)
+
+[node name="Wall" type="MeshInstance3D" parent="Scenario"]
+transform = Transform3D(0.035, 0, 0, 0, 0.59, 0, 0, 0, 3.425, -5.027, 0.279, 0)
+mesh = SubResource("BoxMesh_yragc")
+skeleton = NodePath("")
+
+[node name="MainBuilding" type="MeshInstance3D" parent="Scenario"]
+transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -6.307, -3.5, -0.029)
+mesh = SubResource("BoxMesh_g0wx8")
+skeleton = NodePath("")
+
+[node name="Building 1" type="MeshInstance3D" parent="Scenario"]
+transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -11.865, -2.59376, 0.0157452)
+mesh = SubResource("BoxMesh_g0wx8")
+skeleton = NodePath("")
+
+[node name="Building 2" type="MeshInstance3D" parent="Scenario"]
+transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -11.2567, -3.29004, -5.39593)
+mesh = SubResource("BoxMesh_g0wx8")
+skeleton = NodePath("")
+
+[node name="Building 3" type="MeshInstance3D" parent="Scenario"]
+transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -11.2711, -3.63031, 5.70894)
+mesh = SubResource("BoxMesh_g0wx8")
+skeleton = NodePath("")
+
+[node name="Building 4" type="MeshInstance3D" parent="Scenario"]
+transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -7.14783, -3.02491, 5.80981)
+mesh = SubResource("BoxMesh_g0wx8")
+skeleton = NodePath("")
+
+[node name="Building 5" type="MeshInstance3D" parent="Scenario"]
+transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -2.81603, -3.36023, 5.95464)
+mesh = SubResource("BoxMesh_g0wx8")
+skeleton = NodePath("")
+
+[node name="Building 6" type="MeshInstance3D" parent="Scenario"]
+transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -7.14482, -2.6795, -5.46327)
+mesh = SubResource("BoxMesh_g0wx8")
+skeleton = NodePath("")
+
+[node name="Building 7" type="MeshInstance3D" parent="Scenario"]
+transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -2.93285, -2.71502, -5.46643)
+mesh = SubResource("BoxMesh_g0wx8")
+skeleton = NodePath("")
+
+[node name="Floor" type="MeshInstance3D" parent="Scenario"]
+transform = Transform3D(-15, 4.52987e-09, 0, -2.26494e-06, -0.03, 0, 0, 0, 15, -8.83842, -5.94635, 0)
+mesh = SubResource("BoxMesh_h8s2w")
+skeleton = NodePath("../..")
