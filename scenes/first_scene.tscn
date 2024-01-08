@@ -1,83 +1,186 @@
-[gd_scene load_steps=5 format=3 uid="uid://sws4nl68vdv"]
+[gd_scene load_steps=27 format=3 uid="uid://sws4nl68vdv"]
+
+[ext_resource type="Script" path="res://scripts/camera/CameraPathFollow3D.cs" id="1_cxc4d"]
+[ext_resource type="Texture2D" uid="uid://bdogou5hl0x2n" path="res://textures/building/brushed_concrete_diff_2k.png" id="2_ahtfb"]
+[ext_resource type="Texture2D" uid="uid://cv1kglyy8gp5r" path="res://textures/building/brushed_concrete_nor_gl_2k.png" id="3_abhfg"]
+[ext_resource type="Texture2D" uid="uid://38ww3bjnkwrx" path="res://textures/building/brushed_concrete_rough_2k.png" id="4_2igec"]
 
 [sub_resource type="Curve3D" id="Curve3D_ebp02"]
-bake_interval = 0.01
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0.02, -0.148, 0, 0, 0, 0, 0, 0, -0.408, 0.137, -0.136, 0.093, -0.057, -0.079, -0.093, 0.057, 0.029, -0.6, 0.185, -0.16, 0.0780811, -0.0476808, -0.0279308, -0.0780811, 0.0476808, 0.0279308, -0.657, 0.25, -0.122, 0.0290029, -0.0654308, -0.0117933, -0.0290029, 0.0654308, 0.0117933, -0.954, 0.25, -0.101, 0.0261579, -0.0900051, 0.144835, -0.0261579, 0.0900051, -0.144835, -1.215, 0.25, -0.068, 0, 0, 0, -0.00244045, 0.00973403, 0.00310783, -1.5, 0.25, -0.034, 0.00574398, -0.0420623, -0.000626414, -0.00574398, 0.0420623, 0.000626414, -3.103, 0.25, 0, 0, 0, 0, 0, 0, 0, -3.242, 0.35, 0, 0, 0, 0, 0, 0.05, 0, -3.436, 0.483, 0, 0, 0.06, 0, 0, 0.12, 0, -3.644, 0.55, 0, 0, 0.01, 0, 0, 0, 0, -3.881, 0.255, 0, 0, 0, 0, 0, 0, 0, -3.926, -5.979, -0.001),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.0940903, 0.0311147, -0.149699, 0, 0, 0, 0, 0, 0, -0.408, 0.137, -0.136, 0.093, -0.057, -0.079, -0.093, 0.057, 0.029, -0.584112, 0.124368, -0.141178, 0.0780811, -0.0476808, -0.0279308, -0.0780811, 0.0476808, 0.0279308, -0.714602, 0.113787, -0.0775867, 0, 0, 0, 0, 0, 0, -0.797688, 0.231013, -0.0415074, 0, 0, 0, 0, 0, 0, -0.896139, 0.164978, -0.108181, 0.0290029, -0.0654308, -0.0117933, -0.0290029, 0.0654308, 0.0117933, -0.966409, 0.238375, -0.0118129, 0, 0, 0, 0, 0, 0, -1.13556, 0.230815, -0.152315, -0.0547228, -0.124708, 0.0860469, 0.0547228, 0.124708, -0.0860469, -1.24543, 0.23625, -0.0978594, 0.00244045, -0.00973403, -0.00310783, -0.00244045, 0.00973403, 0.00310783, -1.43531, 0.249395, 0.137637, 0, 0, 0, 0, 0, 0, -1.60905, 0.225831, -0.0810218, 0, 0, 0, 0, 0, 0, -1.82647, 0.214557, 0.062694, 0, 0, 0, 0, 0, 0, -1.99211, 0.236993, -0.12728, 0, 0, 0, 0, 0, 0, -2.336, 0.22, 0.016, 0, 0, 0, 0, 0, 0, -2.65645, 0.21664, -0.118786, 0, 0, 0, 0, 0, 0, -2.95239, 0.303142, -0.0218953, 0, 0, 0, 0, 0, 0, -3.2386, 0.351811, 0.00327814, 0, 0, 0, 0, 0.05, 0, -3.436, 0.483, 0, 0, 0.06, 0, 0, 0.12, 0, -3.644, 0.55, 0, 0, 0.01, 0, 0, 0, 0, -3.881, 0.255, 0, 0, 0, 0, 0, 0, 0, -3.926, -5.979, -0.001),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 13
+point_count = 21
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dji0d"]
+albedo_color = Color(0, 0, 0, 1)
+emission_energy_multiplier = 0.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_yragc"]
+material = SubResource("StandardMaterial3D_dji0d")
 
-[sub_resource type="BoxMesh" id="BoxMesh_g0wx8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kfofv"]
+albedo_color = Color(0.513726, 0.513726, 0.513726, 1)
+albedo_texture = ExtResource("2_ahtfb")
+roughness_texture = ExtResource("4_2igec")
+normal_enabled = true
+normal_texture = ExtResource("3_abhfg")
+uv1_scale = Vector3(25, 25, 25)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d3ybo"]
+material = SubResource("StandardMaterial3D_kfofv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lmgt4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gvrt4"]
+material = SubResource("StandardMaterial3D_lmgt4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdt4q"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1h7o5"]
+material = SubResource("StandardMaterial3D_xdt4q")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pejbx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_l8tgq"]
+material = SubResource("StandardMaterial3D_pejbx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_srcwn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_80ox5"]
+material = SubResource("StandardMaterial3D_srcwn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_im8lo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tiajx"]
+material = SubResource("StandardMaterial3D_im8lo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qgbcl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_m861x"]
+material = SubResource("StandardMaterial3D_qgbcl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_34bwl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gnkn6"]
+material = SubResource("StandardMaterial3D_34bwl")
 
 [sub_resource type="BoxMesh" id="BoxMesh_h8s2w"]
+
+[sub_resource type="Environment" id="Environment_cqdmf"]
+ambient_light_source = 3
+ambient_light_color = Color(0.498039, 0.498039, 0.498039, 1)
+reflected_light_source = 1
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+fog_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0333
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_c75gw"]
+auto_exposure_enabled = true
 
 [node name="FirstScene" type="Node3D"]
 
 [node name="CameraPath" type="Path3D" parent="."]
-transform = Transform3D(0.999418, -1.49043e-09, -0.0340971, 1.49043e-09, 1, -2.54169e-11, 0.0340971, -2.54174e-11, 0.999418, 0.000610448, -0.00115931, -0.00389768)
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0.000610448, -0.00115931, 0.000196561)
 curve = SubResource("Curve3D_ebp02")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="CameraPath"]
-transform = Transform3D(-0.0201681, 0, 0.999658, 0, 0.999984, 0, -0.999653, 0, -0.0201682, -2.24495, 0.238797, -0.0171831)
-progress = 2.49734
-rotation_mode = 1
+transform = Transform3D(0.99986, 0, 0, 0, 0.999984, 0, 0, 0, 0.99986, 0.0940903, 0.0311147, -0.149699)
+rotation_mode = 0
 loop = false
+script = ExtResource("1_cxc4d")
+ProgressSpeed = 0.07
 
 [node name="MainCamera" type="Camera3D" parent="CameraPath/PathFollow3D"]
-transform = Transform3D(1.00008, 0, 0, 0, 1.00002, 0, 0, 0, 1.00008, -0.00181574, 0.000924586, 0.0043893)
+transform = Transform3D(-4.37175e-08, 0, 1.00014, 0, 1.00002, 0, -1.00014, 0, -4.37175e-08, 0.154884, 0.11484, 0)
 
 [node name="Scenario" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.95932, -0.0215268, 0)
 
-[node name="Wall" type="MeshInstance3D" parent="Scenario"]
-transform = Transform3D(0.035, 0, 0, 0, 0.59, 0, 0, 0, 3.425, -5.027, 0.279, 0)
+[node name="Inside Walls" type="Node3D" parent="Scenario"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.01169, 0, -0.030339)
+
+[node name="Front Wall" type="MeshInstance3D" parent="Scenario/Inside Walls"]
+transform = Transform3D(0.035, 0, 0, 0, 0.59, 0, 0, 0, 3.425, -0.360683, 0.279, 0)
+mesh = SubResource("BoxMesh_yragc")
+skeleton = NodePath("")
+
+[node name="Top Wall" type="MeshInstance3D" parent="Scenario/Inside Walls"]
+transform = Transform3D(-1.5299e-09, -0.785, 0, 0.035, -3.43134e-08, 0, 0, 0, 3.425, 0.0275164, 0.557397, 0.00283241)
+mesh = SubResource("BoxMesh_yragc")
+skeleton = NodePath("")
+
+[node name="Bottom Wall" type="MeshInstance3D" parent="Scenario/Inside Walls"]
+transform = Transform3D(-1.5299e-09, -0.785, 0, 0.035, -3.43134e-08, 0, 0, 0, 3.425, 0.0275164, 0.077684, 0.00283241)
+mesh = SubResource("BoxMesh_yragc")
+skeleton = NodePath("")
+
+[node name="Back Wall" type="MeshInstance3D" parent="Scenario/Inside Walls"]
+transform = Transform3D(0.035, 0, 0, 0, 0.59, 0, 0, 0, 3.425, 0.413359, 0.279, 0)
+mesh = SubResource("BoxMesh_yragc")
+skeleton = NodePath("")
+
+[node name="Left Wall" type="MeshInstance3D" parent="Scenario/Inside Walls"]
+transform = Transform3D(-1.5299e-09, 0, 0.775, 0, 0.59, 0, -0.035, 0, -3.38763e-08, 0.027925, 0.279, 1.69582)
+mesh = SubResource("BoxMesh_yragc")
+skeleton = NodePath("")
+
+[node name="Right Wall" type="MeshInstance3D" parent="Scenario/Inside Walls"]
+transform = Transform3D(-1.5299e-09, 0, 0.775, 0, 0.59, 0, -0.035, 0, -3.38763e-08, 0.027925, 0.279, -1.69575)
 mesh = SubResource("BoxMesh_yragc")
 skeleton = NodePath("")
 
 [node name="MainBuilding" type="MeshInstance3D" parent="Scenario"]
 transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -6.307, -3.5, -0.029)
-mesh = SubResource("BoxMesh_g0wx8")
+mesh = SubResource("BoxMesh_d3ybo")
 skeleton = NodePath("")
 
 [node name="Building 1" type="MeshInstance3D" parent="Scenario"]
 transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -11.865, -2.59376, 0.0157452)
-mesh = SubResource("BoxMesh_g0wx8")
+mesh = SubResource("BoxMesh_gvrt4")
 skeleton = NodePath("")
 
 [node name="Building 2" type="MeshInstance3D" parent="Scenario"]
 transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -11.2567, -3.29004, -5.39593)
-mesh = SubResource("BoxMesh_g0wx8")
+mesh = SubResource("BoxMesh_1h7o5")
 skeleton = NodePath("")
 
 [node name="Building 3" type="MeshInstance3D" parent="Scenario"]
 transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -11.2711, -3.63031, 5.70894)
-mesh = SubResource("BoxMesh_g0wx8")
+mesh = SubResource("BoxMesh_l8tgq")
 skeleton = NodePath("")
 
 [node name="Building 4" type="MeshInstance3D" parent="Scenario"]
 transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -7.14783, -3.02491, 5.80981)
-mesh = SubResource("BoxMesh_g0wx8")
+mesh = SubResource("BoxMesh_80ox5")
 skeleton = NodePath("")
 
 [node name="Building 5" type="MeshInstance3D" parent="Scenario"]
 transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -2.81603, -3.36023, 5.95464)
-mesh = SubResource("BoxMesh_g0wx8")
+mesh = SubResource("BoxMesh_tiajx")
 skeleton = NodePath("")
 
 [node name="Building 6" type="MeshInstance3D" parent="Scenario"]
 transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -7.14482, -2.6795, -5.46327)
-mesh = SubResource("BoxMesh_g0wx8")
+mesh = SubResource("BoxMesh_m861x")
 skeleton = NodePath("")
 
 [node name="Building 7" type="MeshInstance3D" parent="Scenario"]
 transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -2.93285, -2.71502, -5.46643)
-mesh = SubResource("BoxMesh_g0wx8")
+mesh = SubResource("BoxMesh_gnkn6")
 skeleton = NodePath("")
 
 [node name="Floor" type="MeshInstance3D" parent="Scenario"]
-transform = Transform3D(-15, 4.52987e-09, 0, -2.26494e-06, -0.03, 0, 0, 0, 15, -8.83842, -5.94635, 0)
+transform = Transform3D(15, 0, 0, 0, 0.03, 0, 0, 0, 15, -8.83842, -5.94635, 0)
 mesh = SubResource("BoxMesh_h8s2w")
 skeleton = NodePath("../..")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cqdmf")
+camera_attributes = SubResource("CameraAttributesPhysical_c75gw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.0247363, -0.22575, 0.973871, -0.00573219, 0.974185, 0.225677, -0.999678, 0, -0.0253918, 0, 1.63438, 0)
