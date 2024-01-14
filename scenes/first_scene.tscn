@@ -7,10 +7,10 @@
 
 [sub_resource type="Curve3D" id="Curve3D_ebp02"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.2, 0.08, -0.133, 0, 0, 0, 0, 0, 0, -0.408, 0.137, -0.136, 0.093, -0.057, -0.079, -0.093, 0.057, 0.029, -0.575, 0.137, -0.141, 0.0780811, -0.0476808, -0.0279308, -0.0780811, 0.0476808, 0.0279308, -0.715, 0.137, -0.078, 0, 0, 0, 0, 0, 0, -0.798, 0.137, -0.042, 0, 0, 0, 0, 0, 0, -0.896139, 0.164978, -0.108181, 0.0290029, -0.0654308, -0.0117933, -0.0290029, 0.0654308, 0.0117933, -0.966409, 0.238375, -0.0118129, 0, 0, 0, 0, 0, 0, -1.13556, 0.230815, -0.152315, -0.0547228, -0.124708, 0.0860469, 0.0547228, 0.124708, -0.0860469, -1.24543, 0.23625, -0.0978594, 0.00244045, -0.00973403, -0.00310783, -0.00244045, 0.00973403, 0.00310783, -1.43531, 0.249395, 0.137637, 0, 0, 0, 0, 0, 0, -1.60905, 0.225831, -0.0810218, 0, 0, 0, 0, 0, 0, -1.82647, 0.214557, 0.062694, 0, 0, 0, 0, 0, 0, -1.99211, 0.236993, -0.12728, 0, 0, 0, 0, 0, 0, -2.336, 0.22, 0.016, 0, 0, 0, 0, 0, 0, -2.65645, 0.21664, -0.118786, 0, 0, 0, 0, 0, 0, -2.95239, 0.303142, -0.0218953, 0, 0, 0, 0, 0, 0, -3.2386, 0.351811, 0.00327814, 0, 0, 0, 0, 0.05, 0, -3.436, 0.483, 0, 0, 0.06, 0, 0, 0.12, 0, -3.644, 0.55, 0, 0, 0.01, 0, 0, 0, 0, -3.881, 0.255, 0, 0, 0, 0, 0, 0, 0, -3.926, -5.979, -0.001),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.245, 0.01, 0, 0, 0, 0, 0, 0, 0, -0.68, 0.067, 0, 0, 0, 0, 0, 0, 0, -0.911, 0.125, -0.027, 0, 0, 0, 0, 0, 0, -1.126, 0.245, -0.057, 0, 0, 0, 0, 0, 0, -1.537, 0.207, -0.177, 0, 0, 0, 0, 0, 0, -1.981, 0.22, -0.034, 0, 0, 0, 0, 0, 0, -2.381, 0.202, -0.184, 0, 0, 0, 0, 0, 0, -2.762, 0.238, -0.032, 0, 0, 0, 0, 0, 0, -2.869, 0.352, -0.022, 0, 0, 0, 0, 0, 0, -3.076, 0.513, -0.03, 0, 0, 0, 0, 0, 0, -3.409, 0.52, -0.015, 0, 0, 0, 0, 0, 0, -3.615, 0.18, 0, 0, 0, 0, 0, 0, 0, -3.5, -5.979, -0.001),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 21
+point_count = 13
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dji0d"]
 albedo_color = Color(0, 0, 0, 1)
@@ -88,17 +88,23 @@ transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0.000610448, -0
 curve = SubResource("Curve3D_ebp02")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="CameraPath" node_paths=PackedStringArray("MainCamera")]
-transform = Transform3D(0.99986, 0, 0, 0, 0.999984, 0, 0, 0, 0.99986, -0.2, 0.08, -0.133)
+transform = Transform3D(0.99986, 0, 0, 0, 0.999984, 0, 0, 0, 0.99986, -0.245, 0.01, 0)
 rotation_mode = 0
 loop = false
 script = ExtResource("1_cxc4d")
-ProgressSpeed = 0.1
+SlowMotionProgressSpeed = 0.005
 MainCamera = NodePath("MainCamera")
-FirstCameraTransitionProgress = 0.15
+FirstCameraTransitionProgress = 0.07
 FirstCameraRotationSpeed = 0.01
+RunningProgressSpeed = 0.11
+SecondCameraTransitionProgress = 0.3
+SecondCameraRotationSpeed = 0.009
+SecondCameraRotationStop = -1.0
+SecondCameraTransitionSpeed = 0.057
+FallingProgressSpeed = 0.28
 
 [node name="MainCamera" type="Camera3D" parent="CameraPath/PathFollow3D"]
-transform = Transform3D(-4.37175e-08, -0.965945, 0.258855, 0, 0.258824, 0.966061, -1.00014, 4.22228e-08, -1.13149e-08, 0, -0.06, 0)
+transform = Transform3D(-4.37177e-08, -0.966054, 0.258886, 0, 0.258853, 0.965933, -1.00014, 4.22277e-08, -1.13163e-08, 0, 0, 0)
 
 [node name="Scenario" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.95932, -0.0215268, 0)
@@ -113,11 +119,6 @@ skeleton = NodePath("")
 
 [node name="Top Wall" type="MeshInstance3D" parent="Scenario/Inside Walls"]
 transform = Transform3D(-1.5299e-09, -0.785, 0, 0.035, -3.43134e-08, 0, 0, 0, 3.425, 0.0275164, 0.557397, 0.00283241)
-mesh = SubResource("BoxMesh_yragc")
-skeleton = NodePath("")
-
-[node name="Bottom Wall" type="MeshInstance3D" parent="Scenario/Inside Walls"]
-transform = Transform3D(-1.5299e-09, -0.785, 0, 0.035, -3.43134e-08, 0, 0, 0, 3.425, 0.0275164, 0.077684, 0.00283241)
 mesh = SubResource("BoxMesh_yragc")
 skeleton = NodePath("")
 
