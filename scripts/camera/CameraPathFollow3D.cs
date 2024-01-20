@@ -2,8 +2,6 @@ using Godot;
 using System;
 using System.Diagnostics;
 
-// TODO - Understand what happened here
-
 public partial class CameraPathFollow3D : PathFollow3D
 {
 	[Export]
@@ -12,6 +10,10 @@ public partial class CameraPathFollow3D : PathFollow3D
 	public float SlowMotionProgressSpeed = 0.001f;
 	[Export]
 	public Camera3D MainCamera;
+	[Export]
+	public Camera3D SecondCamera;
+	[Export]
+	public Camera3D ThirdCamera;
 	[Export]
 	public float FirstCameraTransitionProgress;
 	[Export]
@@ -25,11 +27,9 @@ public partial class CameraPathFollow3D : PathFollow3D
 	[Export]
 	public float SecondCameraRotationSpeed;
 	[Export]
-	public float SecondCameraRotationStop;
-	[Export]
 	public float SecondCameraTransitionSpeed = 0.1f;
 	[Export]
-	public float FallingProgressSpeed = 0.1f;
+	public float SecondCameraRotationStop;
 
 	private bool HasFinishedFirstCameraTransition = false;
 	private bool HasFinishedSecondCameraTransition = false;
@@ -70,7 +70,9 @@ public partial class CameraPathFollow3D : PathFollow3D
 		{
 			if (HasFinishedSecondCameraTransition)
 			{
-				ActualProgressSpeed = FallingProgressSpeed;
+				ActualProgressSpeed = 0;
+				SecondCamera.MakeCurrent();
+				// TODO - Add camera transition.
 				return;
 			}
 

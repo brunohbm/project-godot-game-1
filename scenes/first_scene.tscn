@@ -87,24 +87,24 @@ auto_exposure_enabled = true
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0.000610448, -0.00115931, 0.000196561)
 curve = SubResource("Curve3D_ebp02")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="CameraPath" node_paths=PackedStringArray("MainCamera")]
+[node name="PathFollow3D" type="PathFollow3D" parent="CameraPath" node_paths=PackedStringArray("MainCamera", "SecondCamera")]
 transform = Transform3D(0.99986, 0, 0, 0, 0.999984, 0, 0, 0, 0.99986, -0.245, 0.01, 0)
 rotation_mode = 0
 loop = false
 script = ExtResource("1_cxc4d")
 SlowMotionProgressSpeed = 0.005
 MainCamera = NodePath("MainCamera")
+SecondCamera = NodePath("../../SecondCamera3D")
 FirstCameraTransitionProgress = 0.07
 FirstCameraRotationSpeed = 0.01
 RunningProgressSpeed = 0.11
 SecondCameraTransitionProgress = 0.3
-SecondCameraRotationSpeed = 0.009
-SecondCameraRotationStop = -1.0
-SecondCameraTransitionSpeed = 0.057
-FallingProgressSpeed = 0.28
+SecondCameraRotationSpeed = 0.001
+SecondCameraTransitionSpeed = 0.013
+SecondCameraRotationStop = -0.248
 
 [node name="MainCamera" type="Camera3D" parent="CameraPath/PathFollow3D"]
-transform = Transform3D(-4.37177e-08, -0.966054, 0.258886, 0, 0.258853, 0.965933, -1.00014, 4.22277e-08, -1.13163e-08, 0, 0, 0)
+transform = Transform3D(-4.37178e-08, -0.966054, 0.258885, 0, 0.258853, 0.965933, -1.00014, 4.22278e-08, -1.13163e-08, 0, 0, 0)
 
 [node name="Scenario" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.95932, -0.0215268, 0)
@@ -188,3 +188,10 @@ camera_attributes = SubResource("CameraAttributesPhysical_c75gw")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.0247363, -0.22575, 0.973871, -0.00573219, 0.974185, 0.225677, -0.999678, 0, -0.0253918, 0, 1.63438, 0)
+
+[node name="SecondCamera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.937674, 0.0473871, 0.34427, 0.177617, 0.91684, 0.357571, -0.298696, 0.396433, -0.868114, -3.75253, 1.45085, -1.92689)
+fov = 97.3674
+
+[node name="ThirdCamera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.30927e-08, 0.153865, 0.988092, 7.32805e-09, 0.988092, -0.153865, -1, 6.10308e-10, -4.37071e-08, -2.65422, 0.35211, -0.0787072)
