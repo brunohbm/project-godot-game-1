@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 public partial class CameraPathFollow3D : PathFollow3D
 {
@@ -14,6 +15,16 @@ public partial class CameraPathFollow3D : PathFollow3D
 	public Camera3D SecondCamera;
 	[Export]
 	public Camera3D ThirdCamera;
+	[Export]
+	public Camera3D FourthCamera;
+	[Export]
+	public Camera3D FifthCamera;
+	[Export]
+	public Camera3D SixthCamera;
+	[Export]
+	public Camera3D SeventhCamera;
+	[Export]
+	public Camera3D EightCamera;
 	[Export]
 	public float FirstCameraTransitionProgress;
 	[Export]
@@ -31,8 +42,17 @@ public partial class CameraPathFollow3D : PathFollow3D
 	[Export]
 	public float SecondCameraRotationStop;
 
-	private bool HasFinishedFirstCameraTransition = false;
-	private bool HasFinishedSecondCameraTransition = false;
+	private bool StartFirstCameraTransition = false;
+	private bool StartSecondCameraTransition = false;
+	private bool StartThirdCameraTransition = false;
+	private bool StartFourthCameraTransition = false;
+	private bool StartFifthCameraTransition = false;
+	private bool StartSixthCameraTransition = false;
+	private bool StartSeventhCameraTransition = false;
+	private bool StartEightCameraTransition = false;
+	private bool HasFinishedCamerasTransitions = false;
+
+
 	public float ActualProgressSpeed = 0.04f;
 
 	// Called when the node enters the scene tree for the first time.
@@ -52,7 +72,7 @@ public partial class CameraPathFollow3D : PathFollow3D
 		transform.Basis = transform.Basis.Rotated(Vector3.Forward, FirstCameraRotationSpeed);
 		MainCamera.Transform = transform;
 
-		HasFinishedFirstCameraTransition = MainCamera.Transform.Basis.Y.X >= FirstCameraRotationStop;
+		StartFirstCameraTransition = MainCamera.Transform.Basis.Y.X >= FirstCameraRotationStop;
 	}
 
 	void FallingCameraTransition()
@@ -61,21 +81,101 @@ public partial class CameraPathFollow3D : PathFollow3D
 		transform.Basis = transform.Basis.Rotated(Vector3.Back, SecondCameraRotationSpeed);
 		MainCamera.Transform = transform;
 
-		HasFinishedSecondCameraTransition = MainCamera.Transform.Basis.Y.X <= SecondCameraRotationStop;
+		StartSecondCameraTransition = MainCamera.Transform.Basis.Y.X <= SecondCameraRotationStop;
 	}
 
-	void CheckCameraTransition()
+	void ZoomInCamera(Camera3D camera)
 	{
-		if (HasFinishedFirstCameraTransition)
-		{
-			if (HasFinishedSecondCameraTransition)
-			{
-				ActualProgressSpeed = 0;
-				SecondCamera.MakeCurrent();
-				// TODO - Add camera transition.
-				return;
-			}
+		camera.Fov -= 0.02f;
+	}
 
+	async void CheckCameraTransition()
+	{
+		if (HasFinishedCamerasTransitions)
+		{
+			return;
+		}
+
+
+		if (StartEightCameraTransition)
+		{
+			EightCamera.MakeCurrent();
+			ZoomInCamera(EightCamera);
+			await ToSignal(GetTree().CreateTimer(0.4), "timeout");
+			StartEightCameraTransition = false;
+			HasFinishedCamerasTransitions = true;
+			ActualProgressSpeed = 0.17f;
+			MainCamera.Rotation = new Vector3(-89.89f, -142.95f, 0);
+			MainCamera.MakeCurrent();
+			return;
+		}
+
+		if (StartSeventhCameraTransition)
+		{
+			SeventhCamera.MakeCurrent();
+			ZoomInCamera(SeventhCamera);
+			await ToSignal(GetTree().CreateTimer(0.4), "timeout");
+			StartEightCameraTransition = true;
+			StartSeventhCameraTransition = false;
+			return;
+		}
+
+		if (StartSixthCameraTransition)
+		{
+			SixthCamera.MakeCurrent();
+			ZoomInCamera(SixthCamera);
+			await ToSignal(GetTree().CreateTimer(0.4), "timeout");
+			StartSeventhCameraTransition = true;
+			StartSixthCameraTransition = false;
+			return;
+		}
+
+
+		if (StartFifthCameraTransition)
+		{
+			FifthCamera.MakeCurrent();
+			ZoomInCamera(FifthCamera);
+			await ToSignal(GetTree().CreateTimer(0.4), "timeout");
+			StartSixthCameraTransition = true;
+			StartFifthCameraTransition = false;
+			return;
+		}
+
+		if (StartFourthCameraTransition)
+		{
+			FourthCamera.MakeCurrent();
+			ZoomInCamera(FourthCamera);
+			await ToSignal(GetTree().CreateTimer(0.4), "timeout");
+			StartFifthCameraTransition = true;
+			StartFourthCameraTransition = false;
+			return;
+		}
+
+		if (StartThirdCameraTransition)
+		{
+			ThirdCamera.MakeCurrent();
+			ZoomInCamera(ThirdCamera);
+			await ToSignal(GetTree().CreateTimer(1.6), "timeout");
+			StartFourthCameraTransition = true;
+			StartThirdCameraTransition = false;
+			return;
+		}
+
+
+		if (StartSecondCameraTransition)
+		{
+			StartFirstCameraTransition = false;
+			ActualProgressSpeed = 0;
+			SecondCamera.MakeCurrent();
+			ZoomInCamera(SecondCamera);
+			await ToSignal(GetTree().CreateTimer(2.3), "timeout");
+			StartThirdCameraTransition = true;
+			StartSecondCameraTransition = false;
+			return;
+		}
+
+		if (StartFirstCameraTransition)
+		{
 			if (this.ProgressRatio >= SecondCameraTransitionProgress)
 			{
 				ActualProgressSpeed = SecondCameraTransitionSpeed;

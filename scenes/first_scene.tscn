@@ -87,7 +87,7 @@ auto_exposure_enabled = true
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0.000610448, -0.00115931, 0.000196561)
 curve = SubResource("Curve3D_ebp02")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="CameraPath" node_paths=PackedStringArray("MainCamera", "SecondCamera")]
+[node name="PathFollow3D" type="PathFollow3D" parent="CameraPath" node_paths=PackedStringArray("MainCamera", "SecondCamera", "ThirdCamera", "FourthCamera", "FifthCamera", "SixthCamera", "SeventhCamera", "EightCamera")]
 transform = Transform3D(0.99986, 0, 0, 0, 0.999984, 0, 0, 0, 0.99986, -0.245, 0.01, 0)
 rotation_mode = 0
 loop = false
@@ -95,16 +95,22 @@ script = ExtResource("1_cxc4d")
 SlowMotionProgressSpeed = 0.005
 MainCamera = NodePath("MainCamera")
 SecondCamera = NodePath("../../SecondCamera3D")
+ThirdCamera = NodePath("../../ThirdCamera3D")
+FourthCamera = NodePath("../../FourthCamera3D")
+FifthCamera = NodePath("../../FifthCamera3D")
+SixthCamera = NodePath("../../SixthCamera3D")
+SeventhCamera = NodePath("../../SeventhCamera3D")
+EightCamera = NodePath("../../EightCamera3D")
 FirstCameraTransitionProgress = 0.07
 FirstCameraRotationSpeed = 0.01
 RunningProgressSpeed = 0.11
 SecondCameraTransitionProgress = 0.3
 SecondCameraRotationSpeed = 0.001
 SecondCameraTransitionSpeed = 0.013
-SecondCameraRotationStop = -0.248
+SecondCameraRotationStop = -0.17
 
 [node name="MainCamera" type="Camera3D" parent="CameraPath/PathFollow3D"]
-transform = Transform3D(-4.37178e-08, -0.966054, 0.258885, 0, 0.258853, 0.965933, -1.00014, 4.22278e-08, -1.13163e-08, 0, 0, 0)
+transform = Transform3D(-4.37176e-08, -0.966054, 0.258885, 0, 0.258853, 0.965933, -1.00014, 4.22276e-08, -1.13162e-08, 0, 0, 0)
 
 [node name="Scenario" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.95932, -0.0215268, 0)
@@ -194,4 +200,25 @@ transform = Transform3D(-0.937674, 0.0473871, 0.34427, 0.177617, 0.91684, 0.3575
 fov = 97.3674
 
 [node name="ThirdCamera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.30927e-08, 0.153865, 0.988092, 7.32805e-09, 0.988092, -0.153865, -1, 6.10308e-10, -4.37071e-08, -2.65422, 0.35211, -0.0787072)
+transform = Transform3D(0.439332, 0.238022, 0.866218, -0.0450053, 0.96888, -0.243406, -0.897197, 0.0679516, 0.436372, -2.59848, 0.325078, 0.198877)
+fov = 90.0
+
+[node name="FourthCamera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.00870956, -0.899647, 0.436531, 0.025238, 0.436606, 0.899299, -0.999644, 0.00318465, 0.0265079, -3.36079, 1.99817, -0.0293934)
+fov = 88.0
+
+[node name="FifthCamera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.798337, 0.0588015, 0.599333, -0.420889, 0.766277, 0.485461, -0.43071, -0.639814, 0.636496, -3.21027, 1.18153, 0.934746)
+fov = 102.5
+
+[node name="SixthCamera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.244613, -0.895674, 0.371393, -0.567645, 0.442813, 0.694043, -0.786094, -0.0410476, -0.616742, -3.35708, 1.18153, -1.18732)
+fov = 102.5
+
+[node name="SeventhCamera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.75297, -0.535024, 0.383126, -0.291801, 0.250376, 0.923127, -0.589821, -0.806884, 0.0324048, -4.02481, 1.25341, 0.434302)
+fov = 102.5
+
+[node name="EightCamera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.953905, -0.146938, -0.261676, -0.280144, 0.12326, 0.952012, -0.107633, 0.981436, -0.158742, -4.50187, 1.25341, -0.632385)
+fov = 102.5
