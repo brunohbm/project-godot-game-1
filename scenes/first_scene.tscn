@@ -1,16 +1,30 @@
-[gd_scene load_steps=27 format=3 uid="uid://sws4nl68vdv"]
+[gd_scene load_steps=30 format=3 uid="uid://sws4nl68vdv"]
 
 [ext_resource type="Script" path="res://scripts/camera/CameraPathFollow3D.cs" id="1_cxc4d"]
 [ext_resource type="Texture2D" uid="uid://bdogou5hl0x2n" path="res://textures/building/brushed_concrete_diff_2k.png" id="2_ahtfb"]
 [ext_resource type="Texture2D" uid="uid://cv1kglyy8gp5r" path="res://textures/building/brushed_concrete_nor_gl_2k.png" id="3_abhfg"]
 [ext_resource type="Texture2D" uid="uid://38ww3bjnkwrx" path="res://textures/building/brushed_concrete_rough_2k.png" id="4_2igec"]
+[ext_resource type="Texture2D" uid="uid://c3icp4gjbsey" path="res://images/spacebar.png" id="5_mbqgv"]
+[ext_resource type="Texture2D" uid="uid://d1tslexrabyyo" path="res://images/pressed_spacebar.png" id="6_j7lnl"]
 
 [sub_resource type="Curve3D" id="Curve3D_ebp02"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.245, 0.01, 0, 0, 0, 0, 0, 0, 0, -0.68, 0.067, 0, 0, 0, 0, 0, 0, 0, -0.911, 0.125, -0.027, 0, 0, 0, 0, 0, 0, -1.126, 0.245, -0.057, 0, 0, 0, 0, 0, 0, -1.537, 0.207, -0.177, 0, 0, 0, 0, 0, 0, -1.981, 0.22, -0.034, 0, 0, 0, 0, 0, 0, -2.381, 0.202, -0.184, 0, 0, 0, 0, 0, 0, -2.762, 0.238, -0.032, 0, 0, 0, 0, 0, 0, -2.869, 0.352, -0.022, 0, 0, 0, 0, 0, 0, -3.076, 0.513, -0.03, 0, 0, 0, 0, 0, 0, -3.409, 0.52, -0.015, 0, 0, 0, 0, 0, 0, -3.615, 0.18, 0, 0, 0, 0, 0, 0, 0, -3.5, -5.979, -0.001),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.215, 0.02, 0, 0, 0, 0, 0, 0, 0, -0.68, 0.067, 0, 0, 0, 0, 0, 0, 0, -0.911, 0.125, -0.027, 0, 0, 0, 0, 0, 0, -1.126, 0.245, -0.057, 0, 0, 0, 0, 0, 0, -1.537, 0.207, -0.177, 0, 0, 0, 0, 0, 0, -1.981, 0.22, -0.034, 0, 0, 0, 0, 0, 0, -2.381, 0.202, -0.184, 0, 0, 0, 0, 0, 0, -2.762, 0.238, -0.032, 0, 0, 0, 0, 0, 0, -2.869, 0.352, -0.022, 0, 0, 0, 0, 0, 0, -3.076, 0.513, -0.03, 0, 0, 0, 0, 0, 0, -3.519, 0.52, -0.015, 0, 0, 0, 0, 0, 0, -3.855, 0.18, 0, 0, 0, 0, 0, 0, 0, -4, -5.859, -0.001),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 13
+
+[sub_resource type="Environment" id="Environment_5iw0t"]
+ssr_fade_in = 0.00171573
+ssr_fade_out = 0.000850147
+ssr_depth_tolerance = 0.01
+glow_normalized = true
+glow_intensity = 8.0
+glow_map_strength = 1.0
+fog_light_color = Color(0, 0, 0, 1)
+fog_sky_affect = 0.0
+adjustment_enabled = true
+adjustment_brightness = 0.01
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dji0d"]
 albedo_color = Color(0, 0, 0, 1)
@@ -74,6 +88,9 @@ reflected_light_source = 1
 ssr_enabled = true
 ssao_enabled = true
 ssil_enabled = true
+glow_intensity = 0.0
+glow_strength = 0.0
+glow_bloom = 1.0
 fog_enabled = true
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0333
@@ -88,7 +105,7 @@ transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0.000610448, -0
 curve = SubResource("Curve3D_ebp02")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="CameraPath" node_paths=PackedStringArray("MainCamera", "SecondCamera", "ThirdCamera", "FourthCamera", "FifthCamera", "SixthCamera", "SeventhCamera", "EightCamera")]
-transform = Transform3D(0.99986, 0, 0, 0, 0.999984, 0, 0, 0, 0.99986, -0.245, 0.01, 0)
+transform = Transform3D(0.99986, 0, 0, 0, 0.999984, 0, 0, 0, 0.99986, -0.330918, 0.01, 0)
 rotation_mode = 0
 loop = false
 script = ExtResource("1_cxc4d")
@@ -101,8 +118,8 @@ FifthCamera = NodePath("../../FifthCamera3D")
 SixthCamera = NodePath("../../SixthCamera3D")
 SeventhCamera = NodePath("../../SeventhCamera3D")
 EightCamera = NodePath("../../EightCamera3D")
-FirstCameraTransitionProgress = 0.07
-FirstCameraRotationSpeed = 0.01
+FirstCameraTransitionProgress = 0.06
+FirstCameraRotationSpeed = 0.02
 RunningProgressSpeed = 0.11
 SecondCameraTransitionProgress = 0.3
 SecondCameraRotationSpeed = 0.001
@@ -110,7 +127,9 @@ SecondCameraTransitionSpeed = 0.013
 SecondCameraRotationStop = -0.17
 
 [node name="MainCamera" type="Camera3D" parent="CameraPath/PathFollow3D"]
-transform = Transform3D(-4.37176e-08, -0.966054, 0.258885, 0, 0.258853, 0.965933, -1.00014, 4.22276e-08, -1.13162e-08, 0, 0, 0)
+transform = Transform3D(-4.37177e-08, -0.966054, 0.258885, 0, 0.258853, 0.965933, -1.00014, 4.22277e-08, -1.13163e-08, 0.176625, 0.0395029, 0)
+environment = SubResource("Environment_5iw0t")
+current = true
 
 [node name="Scenario" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.95932, -0.0215268, 0)
@@ -222,3 +241,21 @@ fov = 102.5
 [node name="EightCamera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.953905, -0.146938, -0.261676, -0.280144, 0.12326, 0.952012, -0.107633, 0.981436, -0.158742, -4.50187, 1.25341, -0.632385)
 fov = 102.5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = 425.0
+offset_top = 579.0
+offset_right = 717.0
+offset_bottom = 622.0
+texture = ExtResource("5_mbqgv")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
+offset_left = 410.0
+offset_top = 561.0
+offset_right = 735.0
+offset_bottom = 642.0
+texture = ExtResource("6_j7lnl")
+expand_mode = 1

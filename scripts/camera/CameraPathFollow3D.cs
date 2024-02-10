@@ -51,6 +51,8 @@ public partial class CameraPathFollow3D : PathFollow3D
 	private bool StartSeventhCameraTransition = false;
 	private bool StartEightCameraTransition = false;
 	private bool HasFinishedCamerasTransitions = false;
+	private bool IsAnimationPaused = true;
+	private int ActionPressAmount = 0;
 
 
 	public float ActualProgressSpeed = 0.04f;
@@ -61,9 +63,21 @@ public partial class CameraPathFollow3D : PathFollow3D
 		ActualProgressSpeed = InitialProgressSpeed;
 	}
 
+	void _MakeGlowCameraAnimation()
+	{
+		if (MainCamera.Environment.AdjustmentBrightness > 1)
+		{
+			MainCamera.Environment.AdjustmentBrightness -= 0.00389f;
+		}
+	}
+
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		if (!this.IsAnimationPaused)
+		{
+			this._MakeGlowCameraAnimation();
+		}
 	}
 
 	void GetUpCameraTransition()
@@ -104,8 +118,9 @@ public partial class CameraPathFollow3D : PathFollow3D
 			await ToSignal(GetTree().CreateTimer(0.4), "timeout");
 			StartEightCameraTransition = false;
 			HasFinishedCamerasTransitions = true;
-			ActualProgressSpeed = 0.17f;
-			MainCamera.Rotation = new Vector3(-89.89f, -142.95f, 0);
+			ActualProgressSpeed = 0.135f;
+			MainCamera.Rotation = new Vector3(-89.59f, -142.95f, 0);
+			MainCamera.Fov = 130f;
 			MainCamera.MakeCurrent();
 			return;
 		}
@@ -199,7 +214,28 @@ public partial class CameraPathFollow3D : PathFollow3D
 
 	public override void _PhysicsProcess(double delta)
 	{
+		if (IsAnimationPaused) return;
+
 		this.ProgressRatio += (float)(ActualProgressSpeed * delta);
 		CheckCameraTransition();
+	}
+
+	async public override void _Input(InputEvent @event)
+	{
+		if (!IsAnimationPaused) return;
+
+		if (@event.IsActionPressed("action"))
+		{
+			ActionPressAmount++;
+			IsAnimationPaused = ActionPressAmount <= 7;
+			if (!IsAnimationPaused)
+			{
+				MainCamera.Environment.AdjustmentBrightness = 2;
+				return;
+			}
+
+			await ToSignal(GetTree().CreateTimer(3), "timeout");
+			ActionPressAmount = 0;
+		}
 	}
 }
