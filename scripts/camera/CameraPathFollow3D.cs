@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Data.Common;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
@@ -41,6 +42,10 @@ public partial class CameraPathFollow3D : PathFollow3D
 	public float SecondCameraTransitionSpeed = 0.1f;
 	[Export]
 	public float SecondCameraRotationStop;
+	[Export]
+	public CanvasLayer UiCanvasLayer;
+	[Export]
+	public AudioStreamPlayer StepsAudio;
 
 	private bool StartFirstCameraTransition = false;
 	private bool StartSecondCameraTransition = false;
@@ -120,7 +125,7 @@ public partial class CameraPathFollow3D : PathFollow3D
 			HasFinishedCamerasTransitions = true;
 			ActualProgressSpeed = 0.135f;
 			MainCamera.Rotation = new Vector3(-89.59f, -142.95f, 0);
-			MainCamera.Fov = 130f;
+			MainCamera.Fov = 120f;
 			MainCamera.MakeCurrent();
 			return;
 		}
@@ -212,9 +217,30 @@ public partial class CameraPathFollow3D : PathFollow3D
 		ActualProgressSpeed = InitialProgressSpeed;
 	}
 
+	void _AudioTransitionController()
+	{
+		if (StepsAudio.VolumeDb != 0 && StartFirstCameraTransition)
+		{
+			StepsAudio.VolumeDb = 0;
+		}
+
+		if (this.ProgressRatio >= 0.28f && StepsAudio.VolumeDb != -500)
+		{
+			StepsAudio.VolumeDb = -500;
+		}
+	}
+
 	public override void _PhysicsProcess(double delta)
 	{
 		if (IsAnimationPaused) return;
+
+		this._AudioTransitionController();
+
+		if (this.ProgressRatio >= 0.869)
+		{
+			MainCamera.Environment.AdjustmentBrightness = 0;
+			return;
+		}
 
 		this.ProgressRatio += (float)(ActualProgressSpeed * delta);
 		CheckCameraTransition();
@@ -227,15 +253,25 @@ public partial class CameraPathFollow3D : PathFollow3D
 		if (@event.IsActionPressed("action"))
 		{
 			ActionPressAmount++;
-			IsAnimationPaused = ActionPressAmount <= 7;
+			IsAnimationPaused = ActionPressAmount <= 18;
+			StepsAudio.PitchScale += 0.01f;
+			StepsAudio.VolumeDb += 1.5f;
 			if (!IsAnimationPaused)
 			{
 				MainCamera.Environment.AdjustmentBrightness = 2;
+				StepsAudio.PitchScale = 0.9f;
+				StepsAudio.VolumeDb = -500;
+				UiCanvasLayer.QueueFree();
 				return;
 			}
 
-			await ToSignal(GetTree().CreateTimer(3), "timeout");
-			ActionPressAmount = 0;
+			await ToSignal(GetTree().CreateTimer(4), "timeout");
+			if (IsAnimationPaused)
+			{
+				ActionPressAmount = 0;
+				StepsAudio.PitchScale = 1;
+				StepsAudio.VolumeDb = 0;
+			}
 		}
 	}
 }
