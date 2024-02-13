@@ -4,6 +4,8 @@ using System.Data.Common;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
+// TODO - Make Reverb steps with transition sound
+
 public partial class CameraPathFollow3D : PathFollow3D
 {
 	[Export]
@@ -46,6 +48,8 @@ public partial class CameraPathFollow3D : PathFollow3D
 	public CanvasLayer UiCanvasLayer;
 	[Export]
 	public AudioStreamPlayer StepsAudio;
+	[Export]
+	public AudioStreamPlayer AbruptDoorOpen;
 
 	private bool StartFirstCameraTransition = false;
 	private bool StartSecondCameraTransition = false;
@@ -57,15 +61,31 @@ public partial class CameraPathFollow3D : PathFollow3D
 	private bool StartEightCameraTransition = false;
 	private bool HasFinishedCamerasTransitions = false;
 	private bool IsAnimationPaused = true;
+	private bool isPlayingIntro = true;
 	private int ActionPressAmount = 0;
 
 
 	public float ActualProgressSpeed = 0.04f;
 
+	void _OnFinishIntro()
+	{
+		isPlayingIntro = false;
+		UiCanvasLayer.Visible = true;
+	}
+
+	void _StartIntro()
+	{
+		StepsAudio.VolumeDb = -30;
+		Tween tween = GetTree().CreateTween();
+		tween.TweenProperty(StepsAudio, "volume_db", 0, 16.5f);
+		tween.TweenCallback(Callable.From(this._OnFinishIntro));
+	}
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		ActualProgressSpeed = InitialProgressSpeed;
+		this._StartIntro();
 	}
 
 	void _MakeGlowCameraAnimation()
@@ -79,6 +99,8 @@ public partial class CameraPathFollow3D : PathFollow3D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		GD.Print(StepsAudio.VolumeDb);
+
 		if (!this.IsAnimationPaused)
 		{
 			this._MakeGlowCameraAnimation();
@@ -219,20 +241,20 @@ public partial class CameraPathFollow3D : PathFollow3D
 
 	void _AudioTransitionController()
 	{
-		if (StepsAudio.VolumeDb != 0 && StartFirstCameraTransition)
+		if (!StepsAudio.Playing && StartFirstCameraTransition)
 		{
-			StepsAudio.VolumeDb = 0;
+			StepsAudio.Play();
 		}
 
-		if (this.ProgressRatio >= 0.28f && StepsAudio.VolumeDb != -500)
+		if (this.ProgressRatio >= 0.28f && StepsAudio.Playing)
 		{
-			StepsAudio.VolumeDb = -500;
+			StepsAudio.Stop();
 		}
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
-		if (IsAnimationPaused) return;
+		if (IsAnimationPaused || isPlayingIntro) return;
 
 		this._AudioTransitionController();
 
@@ -248,7 +270,7 @@ public partial class CameraPathFollow3D : PathFollow3D
 
 	async public override void _Input(InputEvent @event)
 	{
-		if (!IsAnimationPaused) return;
+		if (!IsAnimationPaused || isPlayingIntro) return;
 
 		if (@event.IsActionPressed("action"))
 		{
@@ -260,8 +282,10 @@ public partial class CameraPathFollow3D : PathFollow3D
 			{
 				MainCamera.Environment.AdjustmentBrightness = 2;
 				StepsAudio.PitchScale = 0.9f;
-				StepsAudio.VolumeDb = -500;
+				StepsAudio.VolumeDb = 0;
+				StepsAudio.Stop();
 				UiCanvasLayer.QueueFree();
+				AbruptDoorOpen.Play();
 				return;
 			}
 

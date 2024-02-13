@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://sws4nl68vdv"]
+[gd_scene load_steps=33 format=3 uid="uid://sws4nl68vdv"]
 
 [ext_resource type="Script" path="res://scripts/camera/CameraPathFollow3D.cs" id="1_cxc4d"]
 [ext_resource type="Texture2D" uid="uid://bdogou5hl0x2n" path="res://textures/building/brushed_concrete_diff_2k.png" id="2_ahtfb"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d1tslexrabyyo" path="res://images/pressed_spacebar.png" id="6_j7lnl"]
 [ext_resource type="Script" path="res://scripts/buttons/SpaceButtonControll.cs" id="7_0rf5f"]
 [ext_resource type="AudioStream" uid="uid://cpk60v30t3red" path="res://sounds/stair_walk.mp3" id="8_vxnsq"]
+[ext_resource type="AudioStream" uid="uid://chhe4bgdmgvi5" path="res://sounds/abrupt_door_open.wav" id="9_3tdif"]
 
 [sub_resource type="Curve3D" id="Curve3D_ebp02"]
 _data = {
@@ -106,7 +107,7 @@ auto_exposure_enabled = true
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0.000610448, -0.00115931, 0.000196561)
 curve = SubResource("Curve3D_ebp02")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="CameraPath" node_paths=PackedStringArray("MainCamera", "SecondCamera", "ThirdCamera", "FourthCamera", "FifthCamera", "SixthCamera", "SeventhCamera", "EightCamera", "UiCanvasLayer", "StepsAudio")]
+[node name="PathFollow3D" type="PathFollow3D" parent="CameraPath" node_paths=PackedStringArray("MainCamera", "SecondCamera", "ThirdCamera", "FourthCamera", "FifthCamera", "SixthCamera", "SeventhCamera", "EightCamera", "UiCanvasLayer", "StepsAudio", "AbruptDoorOpen")]
 transform = Transform3D(0.99986, 0, 0, 0, 0.999984, 0, 0, 0, 0.99986, -0.215, 0.02, 0)
 rotation_mode = 0
 loop = false
@@ -129,6 +130,7 @@ SecondCameraTransitionSpeed = 0.013
 SecondCameraRotationStop = -0.17
 UiCanvasLayer = NodePath("../../CanvasLayer")
 StepsAudio = NodePath("../../Songs/Steps")
+AbruptDoorOpen = NodePath("../../Songs/AbruptDoorOpen")
 
 [node name="MainCamera" type="Camera3D" parent="CameraPath/PathFollow3D"]
 transform = Transform3D(-4.37177e-08, -0.966054, 0.258885, 0, 0.258853, 0.965933, -1.00014, 4.22277e-08, -1.13163e-08, 0.176625, 0.0395029, 0)
@@ -247,6 +249,7 @@ transform = Transform3D(-0.953905, -0.146938, -0.261676, -0.280144, 0.12326, 0.9
 fov = 102.5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 7
@@ -285,3 +288,6 @@ script = ExtResource("7_0rf5f")
 [node name="Steps" type="AudioStreamPlayer" parent="Songs"]
 stream = ExtResource("8_vxnsq")
 autoplay = true
+
+[node name="AbruptDoorOpen" type="AudioStreamPlayer" parent="Songs"]
+stream = ExtResource("9_3tdif")
