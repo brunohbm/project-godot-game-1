@@ -47,9 +47,13 @@ public partial class CameraPathFollow3D : PathFollow3D
 	[Export]
 	public CanvasLayer UiCanvasLayer;
 	[Export]
-	public AudioStreamPlayer StepsAudio;
+	public AudioStreamPlayer IndoorStepsAudio;
+	[Export]
+	public AudioStreamPlayer OutdoorStepsAudio;
 	[Export]
 	public AudioStreamPlayer AbruptDoorOpen;
+	[Export]
+	public AudioStreamPlayer TensionSound;
 
 	private bool StartFirstCameraTransition = false;
 	private bool StartSecondCameraTransition = false;
@@ -75,9 +79,9 @@ public partial class CameraPathFollow3D : PathFollow3D
 
 	void _StartIntro()
 	{
-		StepsAudio.VolumeDb = -30;
+		IndoorStepsAudio.VolumeDb = -30;
 		Tween tween = GetTree().CreateTween();
-		tween.TweenProperty(StepsAudio, "volume_db", 0, 16.5f);
+		tween.TweenProperty(IndoorStepsAudio, "volume_db", 0, 13.5f);
 		tween.TweenCallback(Callable.From(this._OnFinishIntro));
 	}
 
@@ -99,8 +103,6 @@ public partial class CameraPathFollow3D : PathFollow3D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		GD.Print(StepsAudio.VolumeDb);
-
 		if (!this.IsAnimationPaused)
 		{
 			this._MakeGlowCameraAnimation();
@@ -241,14 +243,14 @@ public partial class CameraPathFollow3D : PathFollow3D
 
 	void _AudioTransitionController()
 	{
-		if (!StepsAudio.Playing && StartFirstCameraTransition)
+		if (!OutdoorStepsAudio.Playing && StartFirstCameraTransition)
 		{
-			StepsAudio.Play();
+			OutdoorStepsAudio.Play();
 		}
 
-		if (this.ProgressRatio >= 0.28f && StepsAudio.Playing)
+		if (this.ProgressRatio >= 0.28f && OutdoorStepsAudio.Playing)
 		{
-			StepsAudio.Stop();
+			OutdoorStepsAudio.Stop();
 		}
 	}
 
@@ -276,14 +278,15 @@ public partial class CameraPathFollow3D : PathFollow3D
 		{
 			ActionPressAmount++;
 			IsAnimationPaused = ActionPressAmount <= 18;
-			StepsAudio.PitchScale += 0.01f;
-			StepsAudio.VolumeDb += 1.5f;
+			IndoorStepsAudio.PitchScale += 0.01f;
+			IndoorStepsAudio.VolumeDb += 1.5f;
 			if (!IsAnimationPaused)
 			{
 				MainCamera.Environment.AdjustmentBrightness = 2;
-				StepsAudio.PitchScale = 0.9f;
-				StepsAudio.VolumeDb = 0;
-				StepsAudio.Stop();
+				IndoorStepsAudio.PitchScale = 0.9f;
+				IndoorStepsAudio.VolumeDb = 0;
+				IndoorStepsAudio.Stop();
+				TensionSound.Stop();
 				UiCanvasLayer.QueueFree();
 				AbruptDoorOpen.Play();
 				return;
@@ -293,8 +296,8 @@ public partial class CameraPathFollow3D : PathFollow3D
 			if (IsAnimationPaused)
 			{
 				ActionPressAmount = 0;
-				StepsAudio.PitchScale = 1;
-				StepsAudio.VolumeDb = 0;
+				IndoorStepsAudio.PitchScale = 1;
+				IndoorStepsAudio.VolumeDb = 0;
 			}
 		}
 	}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://sws4nl68vdv"]
+[gd_scene load_steps=40 format=3 uid="uid://sws4nl68vdv"]
 
 [ext_resource type="Script" path="res://scripts/camera/CameraPathFollow3D.cs" id="1_cxc4d"]
 [ext_resource type="Texture2D" uid="uid://bdogou5hl0x2n" path="res://textures/building/brushed_concrete_diff_2k.png" id="2_ahtfb"]
@@ -7,8 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://c3icp4gjbsey" path="res://images/spacebar.png" id="5_mbqgv"]
 [ext_resource type="Texture2D" uid="uid://d1tslexrabyyo" path="res://images/pressed_spacebar.png" id="6_j7lnl"]
 [ext_resource type="Script" path="res://scripts/buttons/SpaceButtonControll.cs" id="7_0rf5f"]
-[ext_resource type="AudioStream" uid="uid://cpk60v30t3red" path="res://sounds/stair_walk.mp3" id="8_vxnsq"]
+[ext_resource type="AudioStream" uid="uid://nt1g71ql50ee" path="res://sounds/stair_walk_with_reeverb.wav" id="8_rw4v3"]
 [ext_resource type="AudioStream" uid="uid://chhe4bgdmgvi5" path="res://sounds/abrupt_door_open.wav" id="9_3tdif"]
+[ext_resource type="AudioStream" uid="uid://bnc2rbx01f47v" path="res://sounds/outdoor_walk.wav" id="9_jh23r"]
+[ext_resource type="AudioStream" uid="uid://37f7542agmro" path="res://sounds/tension_background_sound.wav" id="9_o7u4v"]
+[ext_resource type="Texture2D" uid="uid://cofjrr2evlk6x" path="res://images/0.png" id="12_goiuu"]
+[ext_resource type="Texture2D" uid="uid://wcxdmclobmde" path="res://images/1.png" id="13_fexm0"]
+[ext_resource type="Texture2D" uid="uid://be5x4rd2lhw0d" path="res://images/2.png" id="14_jwmys"]
+[ext_resource type="Texture2D" uid="uid://bvj2b1garvm64" path="res://images/3.png" id="15_dtn8q"]
 
 [sub_resource type="Curve3D" id="Curve3D_ebp02"]
 _data = {
@@ -101,13 +107,33 @@ volumetric_fog_density = 0.0333
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_c75gw"]
 auto_exposure_enabled = true
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_51tcs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_goiuu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_fexm0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_jwmys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_dtn8q")
+}],
+"loop": true,
+"name": &"stair",
+"speed": 6.0
+}]
+
 [node name="FirstScene" type="Node3D"]
 
 [node name="CameraPath" type="Path3D" parent="."]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0.000610448, -0.00115931, 0.000196561)
 curve = SubResource("Curve3D_ebp02")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="CameraPath" node_paths=PackedStringArray("MainCamera", "SecondCamera", "ThirdCamera", "FourthCamera", "FifthCamera", "SixthCamera", "SeventhCamera", "EightCamera", "UiCanvasLayer", "StepsAudio", "AbruptDoorOpen")]
+[node name="PathFollow3D" type="PathFollow3D" parent="CameraPath" node_paths=PackedStringArray("MainCamera", "SecondCamera", "ThirdCamera", "FourthCamera", "FifthCamera", "SixthCamera", "SeventhCamera", "EightCamera", "UiCanvasLayer", "IndoorStepsAudio", "OutdoorStepsAudio", "AbruptDoorOpen", "TensionSound")]
 transform = Transform3D(0.99986, 0, 0, 0, 0.999984, 0, 0, 0, 0.99986, -0.215, 0.02, 0)
 rotation_mode = 0
 loop = false
@@ -129,8 +155,10 @@ SecondCameraRotationSpeed = 0.001
 SecondCameraTransitionSpeed = 0.013
 SecondCameraRotationStop = -0.17
 UiCanvasLayer = NodePath("../../CanvasLayer")
-StepsAudio = NodePath("../../Songs/Steps")
+IndoorStepsAudio = NodePath("../../Songs/IndoorSteps")
+OutdoorStepsAudio = NodePath("../../Songs/OutdoorSteps")
 AbruptDoorOpen = NodePath("../../Songs/AbruptDoorOpen")
+TensionSound = NodePath("../../Songs/TensionSound")
 
 [node name="MainCamera" type="Camera3D" parent="CameraPath/PathFollow3D"]
 transform = Transform3D(-4.37177e-08, -0.966054, 0.258885, 0, 0.258853, 0.965933, -1.00014, 4.22277e-08, -1.13163e-08, 0.176625, 0.0395029, 0)
@@ -285,9 +313,27 @@ script = ExtResource("7_0rf5f")
 
 [node name="Songs" type="Node" parent="."]
 
-[node name="Steps" type="AudioStreamPlayer" parent="Songs"]
-stream = ExtResource("8_vxnsq")
+[node name="IndoorSteps" type="AudioStreamPlayer" parent="Songs"]
+stream = ExtResource("8_rw4v3")
 autoplay = true
+
+[node name="TensionSound" type="AudioStreamPlayer" parent="Songs"]
+stream = ExtResource("9_o7u4v")
+volume_db = -33.0
+autoplay = true
+
+[node name="OutdoorSteps" type="AudioStreamPlayer" parent="Songs"]
+stream = ExtResource("9_jh23r")
 
 [node name="AbruptDoorOpen" type="AudioStreamPlayer" parent="Songs"]
 stream = ExtResource("9_3tdif")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(590, 358)
+rotation = -0.0418879
+skew = 0.767945
+sprite_frames = SubResource("SpriteFrames_51tcs")
+animation = &"stair"
+autoplay = "stair"
+frame = 3
+frame_progress = 1.0
