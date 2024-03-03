@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wcxdmclobmde"
-path="res://.godot/imported/1.png-592ad2dcfc3ba8a7eeab28f7b079788e.ctex"
+uid="uid://dhd0mog21tyei"
+path="res://.godot/imported/9.png-52cc96983c6d7a1aaa7a0fb3e1165a6e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/1.png"
-dest_files=["res://.godot/imported/1.png-592ad2dcfc3ba8a7eeab28f7b079788e.ctex"]
+source_file="res://images/animation/stair_running/9.png"
+dest_files=["res://.godot/imported/9.png-52cc96983c6d7a1aaa7a0fb3e1165a6e.ctex"]
 
 [params]
 

@@ -54,6 +54,8 @@ public partial class CameraPathFollow3D : PathFollow3D
 	public AudioStreamPlayer AbruptDoorOpen;
 	[Export]
 	public AudioStreamPlayer TensionSound;
+	[Export]
+	public AnimatedSprite2D StairWalkAnimation;
 
 	private bool StartFirstCameraTransition = false;
 	private bool StartSecondCameraTransition = false;
@@ -77,7 +79,7 @@ public partial class CameraPathFollow3D : PathFollow3D
 		UiCanvasLayer.Visible = true;
 	}
 
-	void _StartIntro()
+	void _StartVolumeIntro()
 	{
 		IndoorStepsAudio.VolumeDb = -30;
 		Tween tween = GetTree().CreateTween();
@@ -85,11 +87,18 @@ public partial class CameraPathFollow3D : PathFollow3D
 		tween.TweenCallback(Callable.From(this._OnFinishIntro));
 	}
 
+	void _StartAnimationIntro() {
+		Tween tween = GetTree().CreateTween();
+		tween.TweenProperty(StairWalkAnimation, "modulate", new Color(1, 1, 1, 0.03f), 7f);
+		tween.TweenProperty(StairWalkAnimation, "modulate", new Color(1, 1, 1, 1f), 9f);
+	}
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		ActualProgressSpeed = InitialProgressSpeed;
-		this._StartIntro();
+		this._StartVolumeIntro();	
+		this._StartAnimationIntro();
 	}
 
 	void _MakeGlowCameraAnimation()
@@ -282,6 +291,7 @@ public partial class CameraPathFollow3D : PathFollow3D
 			IndoorStepsAudio.VolumeDb += 1.5f;
 			if (!IsAnimationPaused)
 			{
+				StairWalkAnimation.Visible = false;
 				MainCamera.Environment.AdjustmentBrightness = 2;
 				IndoorStepsAudio.PitchScale = 0.9f;
 				IndoorStepsAudio.VolumeDb = 0;

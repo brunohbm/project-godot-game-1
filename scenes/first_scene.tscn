@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://sws4nl68vdv"]
+[gd_scene load_steps=44 format=3 uid="uid://sws4nl68vdv"]
 
 [ext_resource type="Script" path="res://scripts/camera/CameraPathFollow3D.cs" id="1_cxc4d"]
 [ext_resource type="Texture2D" uid="uid://bdogou5hl0x2n" path="res://textures/building/brushed_concrete_diff_2k.png" id="2_ahtfb"]
@@ -11,10 +11,14 @@
 [ext_resource type="AudioStream" uid="uid://chhe4bgdmgvi5" path="res://sounds/abrupt_door_open.wav" id="9_3tdif"]
 [ext_resource type="AudioStream" uid="uid://bnc2rbx01f47v" path="res://sounds/outdoor_walk.wav" id="9_jh23r"]
 [ext_resource type="AudioStream" uid="uid://37f7542agmro" path="res://sounds/tension_background_sound.wav" id="9_o7u4v"]
-[ext_resource type="Texture2D" uid="uid://cofjrr2evlk6x" path="res://images/0.png" id="12_goiuu"]
-[ext_resource type="Texture2D" uid="uid://wcxdmclobmde" path="res://images/1.png" id="13_fexm0"]
-[ext_resource type="Texture2D" uid="uid://be5x4rd2lhw0d" path="res://images/2.png" id="14_jwmys"]
-[ext_resource type="Texture2D" uid="uid://bvj2b1garvm64" path="res://images/3.png" id="15_dtn8q"]
+[ext_resource type="Texture2D" uid="uid://cqudet3fxk2pa" path="res://images/animation/stair_running/0.png" id="12_xcv0a"]
+[ext_resource type="Texture2D" uid="uid://brl6psvrafg6v" path="res://images/animation/stair_running/1.png" id="13_lb053"]
+[ext_resource type="Texture2D" uid="uid://d3mw8p0tpin1l" path="res://images/animation/stair_running/2.png" id="14_0g3wv"]
+[ext_resource type="Texture2D" uid="uid://bqamn44lmenaf" path="res://images/animation/stair_running/4.png" id="15_62frb"]
+[ext_resource type="Texture2D" uid="uid://6w2dk843wu1b" path="res://images/animation/stair_running/6.png" id="16_e6asw"]
+[ext_resource type="Texture2D" uid="uid://ql4tcuhlsl7w" path="res://images/animation/stair_running/8.png" id="17_kfrrr"]
+[ext_resource type="Texture2D" uid="uid://dhd0mog21tyei" path="res://images/animation/stair_running/9.png" id="18_tqbeu"]
+[ext_resource type="Texture2D" uid="uid://d2kbb3chdhi7i" path="res://images/animation/stair_running/10.png" id="19_jbunb"]
 
 [sub_resource type="Curve3D" id="Curve3D_ebp02"]
 _data = {
@@ -111,16 +115,28 @@ auto_exposure_enabled = true
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("12_goiuu")
+"texture": ExtResource("12_xcv0a")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_fexm0")
+"texture": ExtResource("13_lb053")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_jwmys")
+"texture": ExtResource("14_0g3wv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_dtn8q")
+"texture": ExtResource("15_62frb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_e6asw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_kfrrr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_tqbeu")
+}, {
+"duration": 15.0,
+"texture": ExtResource("19_jbunb")
 }],
 "loop": true,
 "name": &"stair",
@@ -133,7 +149,7 @@ animations = [{
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0.000610448, -0.00115931, 0.000196561)
 curve = SubResource("Curve3D_ebp02")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="CameraPath" node_paths=PackedStringArray("MainCamera", "SecondCamera", "ThirdCamera", "FourthCamera", "FifthCamera", "SixthCamera", "SeventhCamera", "EightCamera", "UiCanvasLayer", "IndoorStepsAudio", "OutdoorStepsAudio", "AbruptDoorOpen", "TensionSound")]
+[node name="PathFollow3D" type="PathFollow3D" parent="CameraPath" node_paths=PackedStringArray("MainCamera", "SecondCamera", "ThirdCamera", "FourthCamera", "FifthCamera", "SixthCamera", "SeventhCamera", "EightCamera", "UiCanvasLayer", "IndoorStepsAudio", "OutdoorStepsAudio", "AbruptDoorOpen", "TensionSound", "StairWalkAnimation")]
 transform = Transform3D(0.99986, 0, 0, 0, 0.999984, 0, 0, 0, 0.99986, -0.215, 0.02, 0)
 rotation_mode = 0
 loop = false
@@ -159,6 +175,7 @@ IndoorStepsAudio = NodePath("../../Songs/IndoorSteps")
 OutdoorStepsAudio = NodePath("../../Songs/OutdoorSteps")
 AbruptDoorOpen = NodePath("../../Songs/AbruptDoorOpen")
 TensionSound = NodePath("../../Songs/TensionSound")
+StairWalkAnimation = NodePath("../../AnimatedSprite2D")
 
 [node name="MainCamera" type="Camera3D" parent="CameraPath/PathFollow3D"]
 transform = Transform3D(-4.37177e-08, -0.966054, 0.258885, 0, 0.258853, 0.965933, -1.00014, 4.22277e-08, -1.13163e-08, 0.176625, 0.0395029, 0)
@@ -329,11 +346,9 @@ stream = ExtResource("9_jh23r")
 stream = ExtResource("9_3tdif")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(590, 358)
-rotation = -0.0418879
-skew = 0.767945
+modulate = Color(1, 1, 1, 0)
+position = Vector2(605, 317)
 sprite_frames = SubResource("SpriteFrames_51tcs")
 animation = &"stair"
 autoplay = "stair"
-frame = 3
-frame_progress = 1.0
+frame_progress = 0.232155
