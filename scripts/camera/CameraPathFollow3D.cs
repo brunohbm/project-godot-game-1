@@ -56,6 +56,8 @@ public partial class CameraPathFollow3D : PathFollow3D
 	public AudioStreamPlayer TensionSound;
 	[Export]
 	public AnimatedSprite2D StairWalkAnimation;
+	[Export]
+	public MeshInstance3D DoorHinge;
 
 	private bool StartFirstCameraTransition = false;
 	private bool StartSecondCameraTransition = false;
@@ -87,7 +89,8 @@ public partial class CameraPathFollow3D : PathFollow3D
 		tween.TweenCallback(Callable.From(this._OnFinishIntro));
 	}
 
-	void _StartAnimationIntro() {
+	void _StartAnimationIntro()
+	{
 		Tween tween = GetTree().CreateTween();
 		tween.TweenProperty(StairWalkAnimation, "modulate", new Color(1, 1, 1, 0.03f), 7f);
 		tween.TweenProperty(StairWalkAnimation, "modulate", new Color(1, 1, 1, 1f), 9f);
@@ -97,7 +100,7 @@ public partial class CameraPathFollow3D : PathFollow3D
 	public override void _Ready()
 	{
 		ActualProgressSpeed = InitialProgressSpeed;
-		this._StartVolumeIntro();	
+		this._StartVolumeIntro();
 		this._StartAnimationIntro();
 	}
 
@@ -109,12 +112,18 @@ public partial class CameraPathFollow3D : PathFollow3D
 		}
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	void _MakeDoorAnimation()
+	{
+		Tween tween = GetTree().CreateTween();
+		tween.TweenProperty(DoorHinge, "rotation", new Vector3(0, -2, 0), 3f);
+	}
+
 	public override void _Process(double delta)
 	{
 		if (!this.IsAnimationPaused)
 		{
 			this._MakeGlowCameraAnimation();
+			this._MakeDoorAnimation();
 		}
 	}
 

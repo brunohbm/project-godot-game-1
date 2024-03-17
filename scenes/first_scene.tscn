@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bdogou5hl0x2n" path="res://textures/building/brushed_concrete_diff_2k.png" id="2_ahtfb"]
 [ext_resource type="Texture2D" uid="uid://cv1kglyy8gp5r" path="res://textures/building/brushed_concrete_nor_gl_2k.png" id="3_abhfg"]
 [ext_resource type="Texture2D" uid="uid://38ww3bjnkwrx" path="res://textures/building/brushed_concrete_rough_2k.png" id="4_2igec"]
-[ext_resource type="Texture2D" uid="uid://c3icp4gjbsey" path="res://images/spacebar.png" id="5_mbqgv"]
-[ext_resource type="Texture2D" uid="uid://d1tslexrabyyo" path="res://images/pressed_spacebar.png" id="6_j7lnl"]
+[ext_resource type="Texture2D" uid="uid://dm0fg1dy6pfij" path="res://images/keys/spacebar_unpressed.png" id="5_3ysus"]
+[ext_resource type="Texture2D" uid="uid://d1serwlabwvsn" path="res://images/keys/spacebar_pressed.png" id="6_jua3e"]
 [ext_resource type="Script" path="res://scripts/buttons/SpaceButtonControll.cs" id="7_0rf5f"]
 [ext_resource type="AudioStream" uid="uid://nt1g71ql50ee" path="res://sounds/stair_walk_with_reeverb.wav" id="8_rw4v3"]
 [ext_resource type="AudioStream" uid="uid://chhe4bgdmgvi5" path="res://sounds/abrupt_door_open.wav" id="9_3tdif"]
@@ -149,7 +149,7 @@ animations = [{
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0.000610448, -0.00115931, 0.000196561)
 curve = SubResource("Curve3D_ebp02")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="CameraPath" node_paths=PackedStringArray("MainCamera", "SecondCamera", "ThirdCamera", "FourthCamera", "FifthCamera", "SixthCamera", "SeventhCamera", "EightCamera", "UiCanvasLayer", "IndoorStepsAudio", "OutdoorStepsAudio", "AbruptDoorOpen", "TensionSound", "StairWalkAnimation")]
+[node name="PathFollow3D" type="PathFollow3D" parent="CameraPath" node_paths=PackedStringArray("MainCamera", "SecondCamera", "ThirdCamera", "FourthCamera", "FifthCamera", "SixthCamera", "SeventhCamera", "EightCamera", "UiCanvasLayer", "IndoorStepsAudio", "OutdoorStepsAudio", "AbruptDoorOpen", "TensionSound", "StairWalkAnimation", "DoorHinge")]
 transform = Transform3D(0.99986, 0, 0, 0, 0.999984, 0, 0, 0, 0.99986, -0.215, 0.02, 0)
 rotation_mode = 0
 loop = false
@@ -176,6 +176,7 @@ OutdoorStepsAudio = NodePath("../../Songs/OutdoorSteps")
 AbruptDoorOpen = NodePath("../../Songs/AbruptDoorOpen")
 TensionSound = NodePath("../../Songs/TensionSound")
 StairWalkAnimation = NodePath("../../AnimatedSprite2D")
+DoorHinge = NodePath("../../Scenario/Door Hinge")
 
 [node name="MainCamera" type="Camera3D" parent="CameraPath/PathFollow3D"]
 transform = Transform3D(-4.37177e-08, -0.966054, 0.258885, 0, 0.258853, 0.965933, -1.00014, 4.22277e-08, -1.13163e-08, 0.176625, 0.0395029, 0)
@@ -189,7 +190,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.95932, -0.0215268, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.01169, 0, -0.030339)
 
 [node name="Front Wall" type="MeshInstance3D" parent="Scenario/Inside Walls"]
-transform = Transform3D(0.035, 0, 0, 0, 0.59, 0, 0, 0, 3.425, -0.360683, 0.279, 0)
+transform = Transform3D(0.035, 0, 0, 0, 0.59, 0, 0, 0, 1.54, -0.349209, 0.279, -0.917448)
+mesh = SubResource("BoxMesh_yragc")
+skeleton = NodePath("")
+
+[node name="Front Wall2" type="MeshInstance3D" parent="Scenario/Inside Walls"]
+transform = Transform3D(0.035, 0, 0, 0, 0.59, 0, 0, 0, 1.5, -0.349209, 0.279, 0.969783)
 mesh = SubResource("BoxMesh_yragc")
 skeleton = NodePath("")
 
@@ -258,6 +264,16 @@ transform = Transform3D(15, 0, 0, 0, 0.03, 0, 0, 0, 15, -8.83842, -5.94635, 0)
 mesh = SubResource("BoxMesh_h8s2w")
 skeleton = NodePath("../..")
 
+[node name="Door Hinge" type="MeshInstance3D" parent="Scenario"]
+transform = Transform3D(0.00996975, 0, -0.0173379, 0, 0.525, 0, 0.0173379, 0, 0.00996975, -5.32051, 0.265923, -0.169354)
+mesh = SubResource("BoxMesh_yragc")
+skeleton = NodePath("")
+
+[node name="Door" type="MeshInstance3D" parent="Scenario/Door Hinge"]
+transform = Transform3D(1.75, 0, 0, 0, 1, 0, 0, 0, 17.5, 0, 0, 8.36846)
+mesh = SubResource("BoxMesh_yragc")
+skeleton = NodePath("")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_cqdmf")
 camera_attributes = SubResource("CameraAttributesPhysical_c75gw")
@@ -302,13 +318,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -146.5
+offset_left = -146.0
 offset_top = -130.0
-offset_right = 145.5
-offset_bottom = -87.0
+offset_right = 146.0
+offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("5_mbqgv")
+texture = ExtResource("5_3ysus")
 expand_mode = 1
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
@@ -318,13 +334,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -162.0
-offset_top = -148.0
-offset_right = 163.0
-offset_bottom = -67.0
+offset_left = -146.0
+offset_top = -129.0
+offset_right = 146.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("6_j7lnl")
+texture = ExtResource("6_jua3e")
 expand_mode = 1
 script = ExtResource("7_0rf5f")
 
@@ -352,3 +368,6 @@ sprite_frames = SubResource("SpriteFrames_51tcs")
 animation = &"stair"
 autoplay = "stair"
 frame_progress = 0.232155
+
+[node name="DEV Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.0499829, 0, -0.99875, 0, 1, 0, 0.99875, 0, -0.0499829, -2.1422, 0.681833, -0.0639257)
