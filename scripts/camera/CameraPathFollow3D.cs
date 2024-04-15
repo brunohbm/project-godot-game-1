@@ -55,6 +55,8 @@ public partial class CameraPathFollow3D : PathFollow3D
 	[Export]
 	public AudioStreamPlayer TensionSound;
 	[Export]
+	public AudioStreamPlayer MusicAfterDoorOpen;
+	[Export]
 	public AnimatedSprite2D StairWalkAnimation;
 	[Export]
 	public MeshInstance3D DoorHinge;
@@ -165,7 +167,7 @@ public partial class CameraPathFollow3D : PathFollow3D
 			await ToSignal(GetTree().CreateTimer(0.4), "timeout");
 			StartEightCameraTransition = false;
 			HasFinishedCamerasTransitions = true;
-			ActualProgressSpeed = 0.135f;
+			ActualProgressSpeed = 0.12f;
 			MainCamera.Rotation = new Vector3(-89.59f, -142.95f, 0);
 			MainCamera.Fov = 120f;
 			MainCamera.MakeCurrent();
@@ -307,6 +309,7 @@ public partial class CameraPathFollow3D : PathFollow3D
 				IndoorStepsAudio.Stop();
 				TensionSound.Stop();
 				UiCanvasLayer.QueueFree();
+				MusicAfterDoorOpen.Play();
 				AbruptDoorOpen.Play();
 				return;
 			}

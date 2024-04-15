@@ -17,12 +17,15 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/mode=3
 window/stretch/mode="viewport"
 
 [dotnet]
 
 project/assembly_name="game-1"
+
+[editor]
+
+movie_writer/movie_file="C:/Users/Bruno Henrique/Desktop/first-game/movie.avi"
 
 [editor_plugins]
 
