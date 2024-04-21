@@ -280,7 +280,7 @@ public partial class CameraPathFollow3D : PathFollow3D
 
 		this._AudioTransitionController();
 
-		if (this.ProgressRatio >= 0.869)
+		if (this.ProgressRatio >= 0.90)
 		{
 			MainCamera.Environment.AdjustmentBrightness = 0;
 			return;
