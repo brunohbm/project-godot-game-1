@@ -1,11 +1,14 @@
-[gd_scene load_steps=45 format=3 uid="uid://sws4nl68vdv"]
+[gd_scene load_steps=44 format=3 uid="uid://sws4nl68vdv"]
 
 [ext_resource type="Script" path="res://scripts/camera/CameraPathFollow3D.cs" id="1_cxc4d"]
 [ext_resource type="Texture2D" uid="uid://bdogou5hl0x2n" path="res://textures/building/brushed_concrete_diff_2k.png" id="2_ahtfb"]
 [ext_resource type="Texture2D" uid="uid://cv1kglyy8gp5r" path="res://textures/building/brushed_concrete_nor_gl_2k.png" id="3_abhfg"]
 [ext_resource type="Texture2D" uid="uid://38ww3bjnkwrx" path="res://textures/building/brushed_concrete_rough_2k.png" id="4_2igec"]
 [ext_resource type="Texture2D" uid="uid://dm0fg1dy6pfij" path="res://images/keys/spacebar_unpressed.png" id="5_3ysus"]
+[ext_resource type="Texture2D" uid="uid://ktaxc128olke" path="res://images/buildings/building wall.jpg" id="5_jc1n8"]
 [ext_resource type="Texture2D" uid="uid://d1serwlabwvsn" path="res://images/keys/spacebar_pressed.png" id="6_jua3e"]
+[ext_resource type="Texture2D" uid="uid://ci5lpkx5ndasj" path="res://images/buildings/window.png" id="6_wi51s"]
+[ext_resource type="Texture2D" uid="uid://cy3ec4uy6t4k8" path="res://images/buildings/door.png" id="7_00els"]
 [ext_resource type="Script" path="res://scripts/buttons/SpaceButtonControll.cs" id="7_0rf5f"]
 [ext_resource type="AudioStream" uid="uid://nt1g71ql50ee" path="res://sounds/stair_walk_with_reeverb.wav" id="8_rw4v3"]
 [ext_resource type="AudioStream" uid="uid://chhe4bgdmgvi5" path="res://sounds/abrupt_door_open.wav" id="9_3tdif"]
@@ -58,42 +61,49 @@ uv1_scale = Vector3(25, 25, 25)
 [sub_resource type="BoxMesh" id="BoxMesh_d3ybo"]
 material = SubResource("StandardMaterial3D_kfofv")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lmgt4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7b0fw"]
+albedo_texture = ExtResource("5_jc1n8")
+uv1_scale = Vector3(3, 2, 1)
+uv1_triplanar_sharpness = 0.31864
 
-[sub_resource type="BoxMesh" id="BoxMesh_gvrt4"]
-material = SubResource("StandardMaterial3D_lmgt4")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c0efg"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdt4q"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yv3eo"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_1h7o5"]
-material = SubResource("StandardMaterial3D_xdt4q")
+[sub_resource type="BoxMesh" id="BoxMesh_flv6v"]
+size = Vector3(0.155, 0.155, 0.32)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pejbx"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p7epk"]
+albedo_texture = ExtResource("5_jc1n8")
 
-[sub_resource type="BoxMesh" id="BoxMesh_l8tgq"]
-material = SubResource("StandardMaterial3D_pejbx")
+[sub_resource type="BoxMesh" id="BoxMesh_jjknw"]
+material = SubResource("StandardMaterial3D_p7epk")
+size = Vector3(0.445, 0.225, 0.445)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_srcwn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sc7b5"]
+transparency = 1
+albedo_color = Color(0.94902, 0.933333, 0.894118, 1)
+albedo_texture = ExtResource("6_wi51s")
+uv1_scale = Vector3(2.655, 2.01, 1)
+uv1_offset = Vector3(-0.82, -0.01, 0)
 
-[sub_resource type="BoxMesh" id="BoxMesh_80ox5"]
-material = SubResource("StandardMaterial3D_srcwn")
+[sub_resource type="BoxMesh" id="BoxMesh_42qtn"]
+material = SubResource("StandardMaterial3D_sc7b5")
+size = Vector3(0.03, 0.115, 0.095)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_im8lo"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4o5km"]
+transparency = 1
+albedo_color = Color(1, 0.964706, 0.890196, 1)
+albedo_texture = ExtResource("7_00els")
+uv1_scale = Vector3(2.455, 1.955, 1)
+uv1_offset = Vector3(0.265, 0, 0)
 
-[sub_resource type="BoxMesh" id="BoxMesh_tiajx"]
-material = SubResource("StandardMaterial3D_im8lo")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qgbcl"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_m861x"]
-material = SubResource("StandardMaterial3D_qgbcl")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_34bwl"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_gnkn6"]
-material = SubResource("StandardMaterial3D_34bwl")
+[sub_resource type="BoxMesh" id="BoxMesh_1w4rm"]
+material = SubResource("StandardMaterial3D_4o5km")
+size = Vector3(0.04, 0.14, 0.24)
 
 [sub_resource type="BoxMesh" id="BoxMesh_h8s2w"]
+size = Vector3(1.925, 1, 1.925)
 
 [sub_resource type="Environment" id="Environment_cqdmf"]
 ambient_light_source = 3
@@ -226,46 +236,6 @@ transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -6.307, -3.5, -0.029)
 mesh = SubResource("BoxMesh_d3ybo")
 skeleton = NodePath("")
 
-[node name="Building 1" type="MeshInstance3D" parent="Scenario"]
-transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -11.865, -2.59376, 0.0157452)
-mesh = SubResource("BoxMesh_gvrt4")
-skeleton = NodePath("")
-
-[node name="Building 2" type="MeshInstance3D" parent="Scenario"]
-transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -11.2567, -3.29004, -5.39593)
-mesh = SubResource("BoxMesh_1h7o5")
-skeleton = NodePath("")
-
-[node name="Building 3" type="MeshInstance3D" parent="Scenario"]
-transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -11.2711, -3.63031, 5.70894)
-mesh = SubResource("BoxMesh_l8tgq")
-skeleton = NodePath("")
-
-[node name="Building 4" type="MeshInstance3D" parent="Scenario"]
-transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -7.14783, -3.02491, 5.80981)
-mesh = SubResource("BoxMesh_80ox5")
-skeleton = NodePath("")
-
-[node name="Building 5" type="MeshInstance3D" parent="Scenario"]
-transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -2.81603, -3.36023, 5.95464)
-mesh = SubResource("BoxMesh_tiajx")
-skeleton = NodePath("")
-
-[node name="Building 6" type="MeshInstance3D" parent="Scenario"]
-transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -7.14482, -2.6795, -5.46327)
-mesh = SubResource("BoxMesh_m861x")
-skeleton = NodePath("")
-
-[node name="Building 7" type="MeshInstance3D" parent="Scenario"]
-transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -2.93285, -2.71502, -5.46643)
-mesh = SubResource("BoxMesh_gnkn6")
-skeleton = NodePath("")
-
-[node name="Floor" type="MeshInstance3D" parent="Scenario"]
-transform = Transform3D(15, 0, 0, 0, 0.03, 0, 0, 0, 15, -8.83842, -5.94635, 0)
-mesh = SubResource("BoxMesh_h8s2w")
-skeleton = NodePath("../..")
-
 [node name="Door Hinge" type="MeshInstance3D" parent="Scenario"]
 transform = Transform3D(0.00996975, 0, -0.0173379, 0, 0.525, 0, 0.0173379, 0, 0.00996975, -5.32051, 0.265923, -0.169354)
 mesh = SubResource("BoxMesh_yragc")
@@ -275,6 +245,1755 @@ skeleton = NodePath("")
 transform = Transform3D(1.75, 0, 0, 0, 1, 0, 0, 0, 17.5, 0, 0, 8.36846)
 mesh = SubResource("BoxMesh_yragc")
 skeleton = NodePath("")
+
+[node name="Building 1" type="Node3D" parent="Scenario"]
+transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -11.865, -2.59376, 0.0157452)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Scenario/Building 1"]
+material_override = SubResource("StandardMaterial3D_7b0fw")
+material = SubResource("StandardMaterial3D_c0efg")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Scenario/Building 1/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00663531, 0.471817, 0)
+operation = 2
+size = Vector3(0.925, 0.058, 0.925)
+material = SubResource("StandardMaterial3D_yv3eo")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Scenario/Building 1/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.441427, -0.382498, -0.00132247)
+operation = 2
+mesh = SubResource("BoxMesh_flv6v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/Building 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.232619, 0.546729, 0.237297)
+mesh = SubResource("BoxMesh_jjknw")
+
+[node name="Windows" type="Node3D" parent="Scenario/Building 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00885189, 0)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 1/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 1/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 1/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 1/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 1/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 1/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 1/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 1/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 1/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Windows2" type="Node3D" parent="Scenario/Building 1"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.00885189, -0.00668628)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 1/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 1/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 1/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 1/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 1/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 1/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 1/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 1/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 1/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Windows3" type="Node3D" parent="Scenario/Building 1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.00885189, 0)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 1/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 1/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 1/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 1/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 1/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 1/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 1/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 1/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 1/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Windows4" type="Node3D" parent="Scenario/Building 1"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.00885189, 0)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 1/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 1/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 1/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 1/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 1/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 1/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 1/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 1/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 1/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Scenario/Building 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.349761, -0.390177, 0.000151736)
+mesh = SubResource("BoxMesh_1w4rm")
+
+[node name="Building 4" type="Node3D" parent="Scenario"]
+transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -6.19195, -2.59376, 5.74726)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Scenario/Building 4"]
+material_override = SubResource("StandardMaterial3D_7b0fw")
+material = SubResource("StandardMaterial3D_c0efg")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Scenario/Building 4/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00663531, 0.471817, 0)
+operation = 2
+size = Vector3(0.925, 0.058, 0.925)
+material = SubResource("StandardMaterial3D_yv3eo")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Scenario/Building 4/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.441427, -0.382498, -0.00132247)
+operation = 2
+mesh = SubResource("BoxMesh_flv6v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/Building 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.232619, 0.546729, 0.237297)
+mesh = SubResource("BoxMesh_jjknw")
+
+[node name="Windows" type="Node3D" parent="Scenario/Building 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00885189, 0)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 4/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 4/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 4/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 4/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 4/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 4/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 4/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 4/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 4/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Windows2" type="Node3D" parent="Scenario/Building 4"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.00885189, -0.00668628)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 4/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 4/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 4/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 4/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 4/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 4/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 4/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 4/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 4/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Windows3" type="Node3D" parent="Scenario/Building 4"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.00885189, 0)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 4/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 4/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 4/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 4/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 4/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 4/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 4/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 4/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 4/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Windows4" type="Node3D" parent="Scenario/Building 4"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.00885189, 0)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 4/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 4/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 4/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 4/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 4/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 4/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 4/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 4/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 4/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Scenario/Building 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.349761, -0.390177, 0.000151736)
+mesh = SubResource("BoxMesh_1w4rm")
+
+[node name="Building 6" type="Node3D" parent="Scenario"]
+transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -0.511385, -2.59376, 5.74726)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Scenario/Building 6"]
+material_override = SubResource("StandardMaterial3D_7b0fw")
+material = SubResource("StandardMaterial3D_c0efg")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Scenario/Building 6/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00663531, 0.471817, 0)
+operation = 2
+size = Vector3(0.925, 0.058, 0.925)
+material = SubResource("StandardMaterial3D_yv3eo")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Scenario/Building 6/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.441427, -0.382498, -0.00132247)
+operation = 2
+mesh = SubResource("BoxMesh_flv6v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/Building 6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.232619, 0.546729, 0.237297)
+mesh = SubResource("BoxMesh_jjknw")
+
+[node name="Windows" type="Node3D" parent="Scenario/Building 6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00885189, 0)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 6/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 6/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 6/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 6/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 6/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 6/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 6/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 6/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 6/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Windows2" type="Node3D" parent="Scenario/Building 6"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.00885189, -0.00668628)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 6/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 6/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 6/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 6/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 6/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 6/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 6/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 6/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 6/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Windows3" type="Node3D" parent="Scenario/Building 6"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.00885189, 0)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 6/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 6/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 6/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 6/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 6/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 6/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 6/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 6/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 6/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Windows4" type="Node3D" parent="Scenario/Building 6"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.00885189, 0)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 6/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 6/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 6/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 6/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 6/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 6/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 6/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 6/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 6/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Scenario/Building 6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.349761, -0.390177, 0.000151736)
+mesh = SubResource("BoxMesh_1w4rm")
+
+[node name="Building 8" type="Node3D" parent="Scenario"]
+transform = Transform3D(3.5, 0, 0, 0, 7, 0, 0, 0, 3.5, -0.511385, -2.59376, -5.60006)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Scenario/Building 8"]
+material_override = SubResource("StandardMaterial3D_7b0fw")
+material = SubResource("StandardMaterial3D_c0efg")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Scenario/Building 8/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00663531, 0.471817, 0)
+operation = 2
+size = Vector3(0.925, 0.058, 0.925)
+material = SubResource("StandardMaterial3D_yv3eo")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Scenario/Building 8/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.441427, -0.382498, -0.00132247)
+operation = 2
+mesh = SubResource("BoxMesh_flv6v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/Building 8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.232619, 0.546729, 0.237297)
+mesh = SubResource("BoxMesh_jjknw")
+
+[node name="Windows" type="Node3D" parent="Scenario/Building 8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00885189, 0)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 8/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 8/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 8/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 8/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 8/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 8/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 8/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 8/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 8/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Windows2" type="Node3D" parent="Scenario/Building 8"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.00885189, -0.00668628)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 8/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 8/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 8/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 8/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 8/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 8/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 8/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 8/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 8/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Windows3" type="Node3D" parent="Scenario/Building 8"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.00885189, 0)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 8/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 8/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 8/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 8/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 8/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 8/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 8/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 8/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 8/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Windows4" type="Node3D" parent="Scenario/Building 8"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.00885189, 0)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 8/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 8/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 8/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 8/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 8/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 8/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 8/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 8/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 8/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Scenario/Building 8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.349761, -0.390177, 0.000151736)
+mesh = SubResource("BoxMesh_1w4rm")
+
+[node name="Building 2" type="Node3D" parent="Scenario"]
+transform = Transform3D(3.5, 0, 0, 0, 5.96, 0, 0, 0, 3.5, -11.865, -2.989, 5.61)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Scenario/Building 2"]
+material_override = SubResource("StandardMaterial3D_7b0fw")
+material = SubResource("StandardMaterial3D_c0efg")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Scenario/Building 2/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00663531, 0.471817, 0)
+operation = 2
+size = Vector3(0.925, 0.058, 0.925)
+material = SubResource("StandardMaterial3D_yv3eo")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Scenario/Building 2/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.441427, -0.382498, -0.00132247)
+operation = 2
+mesh = SubResource("BoxMesh_flv6v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/Building 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.232619, 0.546729, 0.237297)
+mesh = SubResource("BoxMesh_jjknw")
+
+[node name="Windows" type="Node3D" parent="Scenario/Building 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00885189, 0)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 2/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 2/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 2/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 2/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 2/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 2/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 2/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 2/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 2/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Windows2" type="Node3D" parent="Scenario/Building 2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.00885189, -0.00668628)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 2/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 2/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 2/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 2/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 2/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 2/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 2/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 2/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 2/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Windows3" type="Node3D" parent="Scenario/Building 2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.00885189, 0)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 2/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 2/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 2/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 2/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 2/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 2/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 2/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 2/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 2/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Windows4" type="Node3D" parent="Scenario/Building 2"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.00885189, 0)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 2/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 2/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 2/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 2/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 2/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 2/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 2/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 2/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 2/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Scenario/Building 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.349761, -0.390177, 0.000151736)
+mesh = SubResource("BoxMesh_1w4rm")
+
+[node name="Building 3" type="Node3D" parent="Scenario"]
+transform = Transform3D(3.5, 0, 0, 0, 5.96, 0, 0, 0, 3.5, -11.865, -2.989, -5.59135)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Scenario/Building 3"]
+material_override = SubResource("StandardMaterial3D_7b0fw")
+material = SubResource("StandardMaterial3D_c0efg")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Scenario/Building 3/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00663531, 0.471817, 0)
+operation = 2
+size = Vector3(0.925, 0.058, 0.925)
+material = SubResource("StandardMaterial3D_yv3eo")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Scenario/Building 3/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.441427, -0.382498, -0.00132247)
+operation = 2
+mesh = SubResource("BoxMesh_flv6v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/Building 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.232619, 0.546729, 0.237297)
+mesh = SubResource("BoxMesh_jjknw")
+
+[node name="Windows" type="Node3D" parent="Scenario/Building 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00885189, 0)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 3/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 3/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 3/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 3/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 3/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 3/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 3/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 3/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 3/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Windows2" type="Node3D" parent="Scenario/Building 3"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.00885189, -0.00668628)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 3/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 3/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 3/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 3/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 3/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 3/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 3/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 3/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 3/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Windows3" type="Node3D" parent="Scenario/Building 3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.00885189, 0)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 3/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 3/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 3/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 3/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 3/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 3/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 3/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 3/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 3/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Windows4" type="Node3D" parent="Scenario/Building 3"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.00885189, 0)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 3/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 3/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 3/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 3/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 3/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 3/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 3/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 3/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 3/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Scenario/Building 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.349761, -0.390177, 0.000151736)
+mesh = SubResource("BoxMesh_1w4rm")
+
+[node name="Building 5" type="Node3D" parent="Scenario"]
+transform = Transform3D(3.5, 0, 0, 0, 5.96, 0, 0, 0, 3.5, -6.35179, -2.989, -5.59135)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Scenario/Building 5"]
+material_override = SubResource("StandardMaterial3D_7b0fw")
+material = SubResource("StandardMaterial3D_c0efg")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Scenario/Building 5/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00663531, 0.471817, 0)
+operation = 2
+size = Vector3(0.925, 0.058, 0.925)
+material = SubResource("StandardMaterial3D_yv3eo")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Scenario/Building 5/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.441427, -0.382498, -0.00132247)
+operation = 2
+mesh = SubResource("BoxMesh_flv6v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/Building 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.232619, 0.546729, 0.237297)
+mesh = SubResource("BoxMesh_jjknw")
+
+[node name="Windows" type="Node3D" parent="Scenario/Building 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00885189, 0)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 5/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 5/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 5/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 5/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 5/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 5/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 5/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 5/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 5/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Windows2" type="Node3D" parent="Scenario/Building 5"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.00885189, -0.00668628)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 5/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 5/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 5/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 5/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 5/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 5/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 5/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 5/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 5/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Windows3" type="Node3D" parent="Scenario/Building 5"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.00885189, 0)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 5/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 5/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 5/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 5/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 5/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 5/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 5/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 5/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 5/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Windows4" type="Node3D" parent="Scenario/Building 5"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.00885189, 0)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 5/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 5/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 5/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 5/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 5/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 5/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 5/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 5/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 5/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Scenario/Building 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.349761, -0.390177, 0.000151736)
+mesh = SubResource("BoxMesh_1w4rm")
+
+[node name="Building 7" type="Node3D" parent="Scenario"]
+transform = Transform3D(3.5, 0, 0, 0, 5.96, 0, 0, 0, 3.5, -0.516093, -2.989, -0.0519743)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Scenario/Building 7"]
+material_override = SubResource("StandardMaterial3D_7b0fw")
+material = SubResource("StandardMaterial3D_c0efg")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Scenario/Building 7/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00663531, 0.471817, 0)
+operation = 2
+size = Vector3(0.925, 0.058, 0.925)
+material = SubResource("StandardMaterial3D_yv3eo")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Scenario/Building 7/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.441427, -0.382498, -0.00132247)
+operation = 2
+mesh = SubResource("BoxMesh_flv6v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/Building 7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.232619, 0.546729, 0.237297)
+mesh = SubResource("BoxMesh_jjknw")
+
+[node name="Windows" type="Node3D" parent="Scenario/Building 7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00885189, 0)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 7/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 7/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 7/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 7/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 7/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 7/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 7/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 7/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 7/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Windows2" type="Node3D" parent="Scenario/Building 7"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.00885189, -0.00668628)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 7/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 7/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 7/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 7/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 7/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 7/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 7/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 7/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 7/Windows2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Windows3" type="Node3D" parent="Scenario/Building 7"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.00885189, 0)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 7/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 7/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 7/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 7/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 7/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 7/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 7/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 7/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 7/Windows3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Windows4" type="Node3D" parent="Scenario/Building 7"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.00885189, 0)
+
+[node name="Window" type="MeshInstance3D" parent="Scenario/Building 7/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Scenario/Building 7/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Scenario/Building 7/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.359361, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Scenario/Building 7/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Scenario/Building 7/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Scenario/Building 7/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, 0.133091, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="Scenario/Building 7/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986185, 0.249262)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="Scenario/Building 7/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.00412758)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Scenario/Building 7/Windows4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49341, -0.0986184, -0.258358)
+mesh = SubResource("BoxMesh_42qtn")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Scenario/Building 7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.349761, -0.390177, 0.000151736)
+mesh = SubResource("BoxMesh_1w4rm")
+
+[node name="Floor" type="MeshInstance3D" parent="Scenario"]
+transform = Transform3D(15, 0, 0, 0, 0.03, 0, 0, 0, 15, -8.83842, -5.94635, 0)
+mesh = SubResource("BoxMesh_h8s2w")
+skeleton = NodePath("../..")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_cqdmf")

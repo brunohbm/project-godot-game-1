@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3icp4gjbsey"
-path.s3tc="res://.godot/imported/spacebar.png-5f9d8006c419821bb50e4200c697a181.s3tc.ctex"
+uid="uid://ktaxc128olke"
+path.s3tc="res://.godot/imported/building wall.jpg-88ed8c3f552f6854051ab3674f90dbe5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://images/spacebar.png"
-dest_files=["res://.godot/imported/spacebar.png-5f9d8006c419821bb50e4200c697a181.s3tc.ctex"]
+source_file="res://images/buildings/building wall.jpg"
+dest_files=["res://.godot/imported/building wall.jpg-88ed8c3f552f6854051ab3674f90dbe5.s3tc.ctex"]
 
 [params]
 
